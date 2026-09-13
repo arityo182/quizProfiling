@@ -8,13 +8,14 @@ import { LandingPageView } from './components/LandingPageView';
 import { IntroView } from './components/IntroView';
 import { TestView } from './components/TestView';
 import { ResultsView } from './components/ResultsView';
+import { ReviewView } from './components/ReviewView';
 import { QuestionPaletteModal } from './components/QuestionPaletteModal';
 import { SubmitWarningModal } from './components/SubmitWarningModal';
 import './App.css';
 
 export function App() {
   const [selectedTest, setSelectedTest] = useState<TestType | null>(null);
-  const [view, setView] = useState<'landing' | 'intro' | 'test' | 'results'>('landing');
+  const [view, setView] = useState<'landing' | 'intro' | 'test' | 'results' | 'review'>('landing');
   const [candidateName, setCandidateName] = useState('Alex Morgan');
   const [durationMinutes, setDurationMinutes] = useState(90);
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
@@ -355,6 +356,24 @@ export function App() {
             candidateName={candidateName}
             results={results}
             onRetake={handleReset}
+            onGoHome={handleGoHome}
+            onReviewAnswers={() => {
+              setView('review');
+              window.scrollTo({ top: 0, behavior: 'smooth' });
+            }}
+          />
+        )}
+
+        {view === 'review' && selectedTest && (
+          <ReviewView
+            candidateName={candidateName}
+            testType={selectedTest}
+            questions={activeQuestionBank}
+            answers={answers}
+            onBackToResults={() => {
+              setView('results');
+              window.scrollTo({ top: 0, behavior: 'smooth' });
+            }}
             onGoHome={handleGoHome}
           />
         )}

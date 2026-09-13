@@ -150,9 +150,13 @@ export const IntroView: React.FC<IntroViewProps> = ({
           </div>
 
           <div className="cta-button-container">
-            <button className="btn-primary-action" onClick={onStart}>
+            <button 
+              type="button"
+              className={`start-btn ${isJava ? 'start-btn-java' : 'start-btn-general'}`} 
+              onClick={onStart}
+            >
               <span>Start Assessment Now</span>
-              <span>→</span>
+              <span className="start-btn-arrow">→</span>
             </button>
           </div>
         </div>

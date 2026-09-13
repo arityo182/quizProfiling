@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { PersonaType, TestType } from '../types';
 
 interface HeaderProps {
-  currentView: 'landing' | 'intro' | 'test' | 'results';
+  currentView: 'landing' | 'intro' | 'test' | 'results' | 'review';
   selectedTest: TestType | null;
   currentSection: number;
   currentQuestionId: number;

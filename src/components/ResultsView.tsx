@@ -12,13 +12,15 @@ interface ResultsViewProps {
   results: ProfilingResults;
   onRetake: () => void;
   onGoHome: () => void;
+  onReviewAnswers: () => void;
 }
 
 export const ResultsView: React.FC<ResultsViewProps> = ({
   candidateName,
   results,
   onRetake,
-  onGoHome
+  onGoHome,
+  onReviewAnswers
 }) => {
   const chartCanvasRef = useRef<HTMLCanvasElement | null>(null);
   const chartInstanceRef = useRef<Chart | null>(null);
@@ -411,6 +413,15 @@ export const ResultsView: React.FC<ResultsViewProps> = ({
               <button 
                 type="button" 
                 className="btn-header" 
+                onClick={onReviewAnswers}
+                style={{ background: '#2563eb', color: '#ffffff', border: '1px solid #1d4ed8', fontWeight: 600 }}
+              >
+                <span>📖</span>
+                <span>Review Answers & Explanations</span>
+              </button>
+              <button 
+                type="button" 
+                className="btn-header" 
                 onClick={onGoHome}
                 style={{ background: '#334155', color: '#f8fafc', border: '1px solid #475569' }}
               >
@@ -752,6 +763,14 @@ export const ResultsView: React.FC<ResultsViewProps> = ({
 
         {/* Bottom Actions */}
         <div style={{ display: 'flex', justifyContent: 'center', gap: '1rem', marginTop: '2rem', flexWrap: 'wrap' }}>
+          <button 
+            type="button"
+            className="btn-primary-action" 
+            onClick={onReviewAnswers}
+            style={{ minWidth: '260px', background: 'linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%)', boxShadow: '0 4px 12px rgba(37, 99, 235, 0.3)' }}
+          >
+            <span>📖 Review My Answers & Explanations</span>
+          </button>
           <button 
             type="button"
             className="btn-primary-action" 
