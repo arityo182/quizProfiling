@@ -2,11 +2,17 @@ import {
   CategoryType, 
   PersonaType, 
   ProfilingResults, 
-  ConsistencyAudit 
+  ConsistencyAudit,
+  TestType,
+  Question
 } from '../types';
 import { QUESTION_BANK, CATEGORY_CONFIG } from '../data/questions';
 
-export function calculateProfilingResults(answers: Record<number, any>): ProfilingResults {
+export function calculateProfilingResults(
+  answers: Record<number, any>,
+  testType: TestType = 'java',
+  questionBank: Question[] = QUESTION_BANK
+): ProfilingResults {
   // 1. Category Score Accumulators
   const catPoints: Record<CategoryType, { earned: number; max: number }> = {
     personality: { earned: 0, max: 0 },
@@ -16,14 +22,22 @@ export function calculateProfilingResults(answers: Record<number, any>): Profili
     motivation: { earned: 0, max: 0 }
   };
 
-  // 2. Persona Accumulators
-  const personaPoints: Record<PersonaType, number> = {
-    "The Architect": 0,
-    "The Debugger": 0,
-    "The Collaborator": 0,
-    "The Executor": 0,
-    "The Learner": 0
-  };
+  // 2. Persona Accumulators (Dynamic by Test Type)
+  const personaPoints: Record<string, number> = testType === 'general'
+    ? {
+        "The Strategist": 0,
+        "The Analyst": 0,
+        "The Collaborator": 0,
+        "The Executor": 0,
+        "The Innovator": 0
+      }
+    : {
+        "The Architect": 0,
+        "The Debugger": 0,
+        "The Collaborator": 0,
+        "The Executor": 0,
+        "The Learner": 0
+      };
 
   // 3. Work Style Dimension Accumulators (-1.0 to 1.0)
   const dimensions: Record<string, { sum: number; count: number }> = {
@@ -39,8 +53,8 @@ export function calculateProfilingResults(answers: Record<number, any>): Profili
   let socialDesirabilityTriggers = 0;
   let consistencyDiscrepancies = 0;
 
-  // Iterate through all 150 questions
-  QUESTION_BANK.forEach(q => {
+  // Iterate through all 150 questions of the active bank
+  questionBank.forEach(q => {
     const val = answers[q.id];
     const category = q.category || 'work_style';
 
@@ -90,7 +104,7 @@ export function calculateProfilingResults(answers: Record<number, any>): Profili
         }
 
         // Persona attribution based on traits
-        if (q.persona) {
+        if (q.persona && personaPoints[q.persona] !== undefined) {
           personaPoints[q.persona] += (val * 1.5);
         }
       }
@@ -103,13 +117,13 @@ export function calculateProfilingResults(answers: Record<number, any>): Profili
       if (val !== undefined) {
         catPoints[category].earned += 90;
 
-        if (val === 'A' && q.persona_a) {
+        if (val === 'A' && q.persona_a && personaPoints[q.persona_a] !== undefined) {
           personaPoints[q.persona_a] += 4;
           if (q.dimension && dimensions[q.dimension] && q.dim_val_a !== undefined && q.dim_val_a !== null) {
             dimensions[q.dimension].sum += q.dim_val_a;
             dimensions[q.dimension].count++;
           }
-        } else if (val === 'B' && q.persona_b) {
+        } else if (val === 'B' && q.persona_b && personaPoints[q.persona_b] !== undefined) {
           personaPoints[q.persona_b] += 4;
           if (q.dimension && dimensions[q.dimension] && q.dim_val_b !== undefined && q.dim_val_b !== null) {
             dimensions[q.dimension].sum += q.dim_val_b;
@@ -127,7 +141,7 @@ export function calculateProfilingResults(answers: Record<number, any>): Profili
         const scoreMultiplier = q.scores[val] || 0.0;
         catPoints[category].earned += (scoreMultiplier * 100);
 
-        if (scoreMultiplier >= 0.75 && q.persona_tag) {
+        if (scoreMultiplier >= 0.75 && q.persona_tag && personaPoints[q.persona_tag] !== undefined) {
           personaPoints[q.persona_tag] += 5;
         }
       }
@@ -147,7 +161,7 @@ export function calculateProfilingResults(answers: Record<number, any>): Profili
     }
   });
 
-  // 5. Paraphrased/Consistency Pairs Check
+  // 5. Paraphrased/Consistency Pairs Check (identical indices across both test banks)
   if (answers[5] !== undefined && answers[38] !== undefined) {
     if ((answers[5] >= 4 && answers[38] >= 4) || (answers[5] <= 2 && answers[38] <= 2)) {
       consistencyDiscrepancies++;
@@ -211,7 +225,7 @@ export function calculateProfilingResults(answers: Record<number, any>): Profili
   finalScore = Math.max(25, Math.min(100, finalScore - consistencyPenalty));
   finalScore = Math.round(finalScore * 10) / 10;
 
-  // 7. Developer Persona Assignment
+  // 7. Persona Assignment
   const sortedPersonas = (Object.entries(personaPoints) as [PersonaType, number][])
     .sort((a, b) => b[1] - a[1]);
 
@@ -236,6 +250,7 @@ export function calculateProfilingResults(answers: Record<number, any>): Profili
   };
 
   return {
+    testType,
     finalScore,
     categoryScores,
     primaryPersona,
@@ -247,6 +262,7 @@ export function calculateProfilingResults(answers: Record<number, any>): Profili
 }
 
 export const PERSONA_DETAILS: Record<PersonaType, { icon: string; tagline: string; desc: string }> = {
+  // Java Personas
   "The Architect": {
     icon: "🏗️",
     tagline: "System Design & Modularity Visionary",
@@ -259,17 +275,33 @@ export const PERSONA_DETAILS: Record<PersonaType, { icon: string; tagline: strin
   },
   "The Collaborator": {
     icon: "🤝",
-    tagline: "Team Catalyst & Code Review Mentor",
-    desc: "You firmly believe that engineering excellence is a collective endeavor. You excel at constructive pull request dialogues, empathetic junior onboarding, cross-squad alignment, and maintaining psychological safety within agile sprint ceremonies."
+    tagline: "Team Catalyst & Mentorship Champion",
+    desc: "You firmly believe that sustained excellence is a collective endeavor. You excel at constructive dialogues, empathetic onboarding, cross-team alignment, and maintaining psychological safety and mutual trust within collaborative environments."
   },
   "The Executor": {
     icon: "🚀",
-    tagline: "High-Velocity Shipper & Pragmatic Finisher",
-    desc: "You have a relentless bias for action and tangible business delivery. You adeptly navigate sprint tradeoffs, slicing complex epics into small deployable pull requests and moving customer value into production rapidly without getting bogged down in dogma."
+    tagline: "High-Velocity Finisher & Pragmatic Deliverer",
+    desc: "You have a relentless bias for action and tangible business delivery. You adeptly navigate trade-offs, slicing complex initiatives into clear milestones and moving stakeholder value forward rapidly without getting bogged down in dogma."
   },
   "The Learner": {
     icon: "📚",
     tagline: "Growth Mindset & Continuous Modernizer",
     desc: "You are driven by deep technical curiosity and enthusiasm for cutting-edge Java evolution. You continuously explore modern language features (Virtual Threads, Records, Pattern Matching) and inspire peers to modernize legacy stacks through hands-on experimentation."
+  },
+  // General Professional Personas
+  "The Strategist": {
+    icon: "🏗️",
+    tagline: "Big-Picture Planner & Goal-Oriented Visionary",
+    desc: "You excel at identifying macro market opportunities, anticipating organizational bottlenecks, and orchestrating cross-functional teams toward long-term strategic objectives. You turn strategic ambiguity into clear, actionable, high-impact roadmaps."
+  },
+  "The Analyst": {
+    icon: "🔍",
+    tagline: "Detail-Oriented & Data-Driven Thinker",
+    desc: "You bring rigorous analytical precision and evidence-based decision making to complex challenges. You dive deep into qualitative and quantitative indicators, uncover root causes, and ensure execution is grounded in sound empirical facts."
+  },
+  "The Innovator": {
+    icon: "💡",
+    tagline: "Creative Catalyst & Adaptable Problem Solver",
+    desc: "You thrive on challenging the status quo and introducing forward-thinking, creative solutions. Highly adaptable to changing conditions, you champion iterative experimentation and inspire colleagues to break through conventional boundaries."
   }
 };

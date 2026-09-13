@@ -11,15 +11,18 @@ interface ResultsViewProps {
   candidateName: string;
   results: ProfilingResults;
   onRetake: () => void;
+  onGoHome: () => void;
 }
 
 export const ResultsView: React.FC<ResultsViewProps> = ({
   candidateName,
   results,
-  onRetake
+  onRetake,
+  onGoHome
 }) => {
   const chartCanvasRef = useRef<HTMLCanvasElement | null>(null);
   const chartInstanceRef = useRef<Chart | null>(null);
+  const isJava = results.testType === 'java';
 
   useEffect(() => {
     if (!chartCanvasRef.current) return;
@@ -54,11 +57,11 @@ export const ResultsView: React.FC<ResultsViewProps> = ({
         datasets: [{
           label: 'Competency Profile (%)',
           data: dataVals,
-          backgroundColor: 'rgba(16, 185, 129, 0.25)',
-          borderColor: '#10b981',
+          backgroundColor: isJava ? 'rgba(37, 99, 235, 0.22)' : 'rgba(16, 185, 129, 0.22)',
+          borderColor: isJava ? '#2563eb' : '#10b981',
           borderWidth: 2.5,
           pointBackgroundColor: '#0f172a',
-          pointBorderColor: '#10b981',
+          pointBorderColor: isJava ? '#2563eb' : '#10b981',
           pointBorderWidth: 2,
           pointRadius: 4.5,
           pointHoverRadius: 6
@@ -91,7 +94,7 @@ export const ResultsView: React.FC<ResultsViewProps> = ({
         chartInstanceRef.current.destroy();
       }
     };
-  }, [results]);
+  }, [results, isJava]);
 
   const score = results.finalScore;
 
@@ -100,46 +103,65 @@ export const ResultsView: React.FC<ResultsViewProps> = ({
   let verdictText = 'HIGHLY RECOMMENDED';
   let verdictIcon = '✅';
   let verdictBorderColor = 'var(--accent-green)';
-  let verdictExpl = `The candidate exemplifies the top tier of Senior Java Engineering talent. Demonstrating mature command over modern Java standards, proactive technical debt mitigation, resilient distributed system design, and constructive collaboration patterns, ${candidateName} is strongly primed to lead architecture and accelerate production velocity within high-impact software engineering teams.`;
+  let verdictExpl = '';
 
   if (score >= 85) {
     verdictClass = 'verdict-badge highly-recommended';
     verdictText = 'HIGHLY RECOMMENDED';
     verdictIcon = '✅';
     verdictBorderColor = 'var(--accent-green)';
+    verdictExpl = isJava
+      ? `The candidate exemplifies the top tier of Senior Java Engineering talent. Demonstrating mature command over modern Java standards, proactive technical debt mitigation, resilient distributed system design, and constructive collaboration patterns, ${candidateName || 'The candidate'} is strongly primed to lead architecture and accelerate production velocity within high-impact software engineering squads.`
+      : `The candidate exemplifies the highest benchmark of workplace professional excellence. Demonstrating visionary strategic alignment, rigorous analytical problem solving, empathetic cross-functional teamwork, and dependable execution velocity, ${candidateName || 'The candidate'} is exceptionally equipped to drive organizational initiatives and deliver superior business outcomes.`;
   } else if (score >= 70) {
     verdictClass = 'verdict-badge recommended';
     verdictText = 'RECOMMENDED';
     verdictIcon = '✅';
     verdictBorderColor = '#0284c7';
-    verdictExpl = `The candidate displays solid, dependable competency in Java development, clean architecture practices, and sprint execution. They possess the required problem-solving mindset and team communication habits to succeed seamlessly in standard enterprise environments, with clear upside potential for advancement into senior technical ownership.`;
+    verdictExpl = isJava
+      ? `The candidate displays solid, dependable competency in Java development, clean architecture practices, and sprint execution. They possess the required problem-solving mindset and team communication habits to succeed seamlessly in standard enterprise environments, with clear upside potential for advancement into senior technical ownership.`
+      : `The candidate displays solid, dependable competencies across workplace execution, analytical problem solving, and collaborative communication. They exhibit strong accountability and adaptability to organizational demands, with clear upside potential for stepping into expanded leadership roles.`;
   } else if (score >= 50) {
     verdictClass = 'verdict-badge needs-development';
     verdictText = 'NEEDS DEVELOPMENT';
     verdictIcon = '⚠️';
     verdictBorderColor = 'var(--accent-amber)';
-    verdictExpl = `The candidate exhibits baseline familiarity with core Java concepts but shows inconsistencies across testing discipline, architectural boundaries, or collaborative feedback dynamics. With targeted technical mentoring and focused coaching on root-cause profiling and agile communication, the candidate can close remaining gaps.`;
+    verdictExpl = isJava
+      ? `The candidate exhibits baseline familiarity with core Java concepts but shows inconsistencies across testing discipline, architectural boundaries, or collaborative feedback dynamics. With targeted technical mentoring and focused coaching on root-cause profiling and agile communication, the candidate can close remaining gaps.`
+      : `The candidate possesses foundational professional capabilities but displays inconsistencies in prioritization, feedback receptivity, or cross-functional alignment. With targeted professional development and mentorship in strategic planning and stakeholder management, performance can be strengthened.`;
   } else {
     verdictClass = 'verdict-badge not-recommended';
     verdictText = 'NOT RECOMMENDED';
     verdictIcon = '❌';
     verdictBorderColor = 'var(--accent-red)';
-    verdictExpl = `The assessment indicates significant divergences from senior engineering expectations, particularly concerning clean code standards, incident debugging methodology, or team alignment. Substantial remediation across enterprise design principles and testing discipline is recommended before role readiness.`;
+    verdictExpl = isJava
+      ? `The assessment indicates significant divergences from senior engineering expectations, particularly concerning clean code standards, incident debugging methodology, or team alignment. Substantial remediation across enterprise design principles and testing discipline is recommended before role readiness.`
+      : `The assessment reveals notable divergences from expected professional competencies, particularly concerning collaborative alignment, situational judgment, or operational consistency. Structured coaching on professional communication and conflict resolution is advised before placement in high-autonomy roles.`;
   }
 
-  // Persona
-  const pData = PERSONA_DETAILS[results.primaryPersona];
+  // Persona Details
+  const pData = PERSONA_DETAILS[results.primaryPersona] || {
+    icon: isJava ? "💻" : "👔",
+    tagline: "Professional Profile",
+    desc: "A balanced professional contributor with versatile capabilities across multiple operational areas."
+  };
   const totalPersonaPts = results.sortedPersonas.reduce((acc, curr) => acc + curr[1], 0) || 1;
+
   const personaColors: Record<string, string> = {
+    // Java Personas
     "The Architect": "#2563eb",
     "The Debugger": "#059669",
     "The Collaborator": "#10b981",
     "The Executor": "#f59e0b",
-    "The Learner": "#8b5cf6"
+    "The Learner": "#8b5cf6",
+    // General Personas
+    "The Strategist": "#2563eb",
+    "The Analyst": "#059669",
+    "The Innovator": "#8b5cf6"
   };
 
   // Category interpretations
-  const interpretations: Record<CategoryType, Record<string, string>> = {
+  const interpretations: Record<CategoryType, Record<string, string>> = isJava ? {
     personality: {
       exceptional: "Demonstrates unflinching emotional composure during high-severity production incidents. Handles critical peer feedback with intellectual maturity.",
       strong: "Maintains balanced self-awareness and handles sprint pressure with resilience. Receptive to architectural direction.",
@@ -170,10 +192,41 @@ export const ResultsView: React.FC<ResultsViewProps> = ({
       moderate: "Satisfied with routine feature implementation; moderately motivated to explore bleeding-edge frameworks.",
       needs_work: "Shows limited intrinsic passion for software craftsmanship or proactive knowledge sharing beyond mandatory tasks."
     }
+  } : {
+    personality: {
+      exceptional: "Maintains exemplary emotional composure during high-stakes corporate challenges. Embraces constructive critique with poise and mature self-awareness.",
+      strong: "Demonstrates balanced self-regulation and copes effectively with shifting workplace deadlines. Receptive to managerial feedback.",
+      moderate: "Generally steady under standard operational conditions, but may feel strained during sudden organizational pivots.",
+      needs_work: "Displays vulnerability to defensive reactions during performance discussions or workplace stress. Benefits from coaching in emotional intelligence."
+    },
+    work_style: {
+      exceptional: "Exemplifies meticulous organization, strict deadline discipline, and continuous process optimization. Delivers high-quality outputs consistently.",
+      strong: "Maintains disciplined task management, proactive communication on deliverables, and structured documentation.",
+      moderate: "Delivers assigned responsibilities adequately, but occasionally overlooks quality refinements when deadlines press.",
+      needs_work: "Tends to deprioritize follow-through and organization, risking operational bottlenecks and delayed project milestones."
+    },
+    teamwork: {
+      exceptional: "Inspires mutual trust, champions inclusive cross-functional collaboration, and acts as an empathetic bridge across diverse stakeholders.",
+      strong: "Proactively communicates progress, fosters harmonious peer relationships, and readily aligns with team consensus.",
+      moderate: "Works productively within their immediate team, but may hesitate to engage in cross-departmental coordination.",
+      needs_work: "Prefers solitary workflows; occasionally finds collaborative negotiations or team consensus building challenging."
+    },
+    problem_solving: {
+      exceptional: "Applies sophisticated analytical frameworks and empirical data to untangle complex ambiguous business problems.",
+      strong: "Methodically investigates root causes and designs practical, evidence-based solutions rather than superficial fixes.",
+      moderate: "Resolves standard day-to-day challenges competently, but needs guidance when navigating novel, unstructured crises.",
+      needs_work: "Relies on intuitive guesswork without verifying factual metrics or evaluating second-order consequences."
+    },
+    motivation: {
+      exceptional: "Intrinsically energized by organizational impact, purpose-driven leadership, and elevating collective enterprise success.",
+      strong: "Motivated by professional achievement, tangible business milestones, and continuous skill refinement.",
+      moderate: "Sustains steady motivation for routine job duties; moderately inclined toward exploring optional stretch opportunities.",
+      needs_work: "Exhibits limited intrinsic engagement beyond baseline requirements; requires ongoing external incentive structures."
+    }
   };
 
-  // Traits
-  const traitsPool = [
+  // Persona-specific traits
+  const javaTraitsPool = [
     {
       tag: "Code Quality Purist",
       headline: "Prioritizes Clean Code & Test Discipline Over Shortcuts",
@@ -201,21 +254,66 @@ export const ResultsView: React.FC<ResultsViewProps> = ({
     }
   ];
 
-  let selectedTraits = [traitsPool[0], traitsPool[1], traitsPool[4]];
-  if (results.primaryPersona === "The Architect") {
-    selectedTraits = [traitsPool[0], traitsPool[1], traitsPool[4]];
-  } else if (results.primaryPersona === "The Debugger") {
-    selectedTraits = [traitsPool[1], traitsPool[0], traitsPool[4]];
-  } else if (results.primaryPersona === "The Collaborator") {
-    selectedTraits = [traitsPool[2], traitsPool[0], traitsPool[3]];
-  } else if (results.primaryPersona === "The Executor") {
-    selectedTraits = [traitsPool[3], traitsPool[1], traitsPool[2]];
-  } else if (results.primaryPersona === "The Learner") {
-    selectedTraits = [traitsPool[4], traitsPool[0], traitsPool[2]];
+  const generalTraitsPool = [
+    {
+      tag: "Strategic Visionary",
+      headline: "Anticipates Long-Term Horizons & Structural Synergies",
+      explanation: "You naturally formulate strategic roadmaps, identify emerging organizational opportunities, and align cross-functional initiatives into cohesive business momentum."
+    },
+    {
+      tag: "Evidence-Based Analyst",
+      headline: "Rigorous Analytical Precision & Data Integrity",
+      explanation: "You ground recommendations in empirical data, scrutinizing assumptions and identifying high-impact levers through thorough quantitative and qualitative inquiry."
+    },
+    {
+      tag: "Empathetic Relationship Builder",
+      headline: "Fosters Cross-Functional Trust & Active Listening",
+      explanation: "You excel at building rapport across teams, facilitating open dialogue, and mediating conflicting priorities with empathy, emotional intelligence, and diplomatic tact."
+    },
+    {
+      tag: "High-Velocity Finisher",
+      headline: "Action-Oriented Discipline & Dependable Milestone Delivery",
+      explanation: "You excel at cutting through ambiguity, prioritizing critical paths, and executing tasks on time with relentless accountability and operational drive."
+    },
+    {
+      tag: "Adaptive Innovation Catalyst",
+      headline: "Embraces Change & Drives Creative Breakthroughs",
+      explanation: "You thrive when exploring novel methodologies, questioning conventional norms, and piloting creative experiments that propel the organization forward."
+    }
+  ];
+
+  let selectedTraits = isJava 
+    ? [javaTraitsPool[0], javaTraitsPool[1], javaTraitsPool[4]]
+    : [generalTraitsPool[0], generalTraitsPool[1], generalTraitsPool[4]];
+
+  if (isJava) {
+    if (results.primaryPersona === "The Architect") {
+      selectedTraits = [javaTraitsPool[0], javaTraitsPool[1], javaTraitsPool[4]];
+    } else if (results.primaryPersona === "The Debugger") {
+      selectedTraits = [javaTraitsPool[1], javaTraitsPool[0], javaTraitsPool[4]];
+    } else if (results.primaryPersona === "The Collaborator") {
+      selectedTraits = [javaTraitsPool[2], javaTraitsPool[0], javaTraitsPool[3]];
+    } else if (results.primaryPersona === "The Executor") {
+      selectedTraits = [javaTraitsPool[3], javaTraitsPool[1], javaTraitsPool[2]];
+    } else if (results.primaryPersona === "The Learner") {
+      selectedTraits = [javaTraitsPool[4], javaTraitsPool[0], javaTraitsPool[2]];
+    }
+  } else {
+    if (results.primaryPersona === "The Strategist") {
+      selectedTraits = [generalTraitsPool[0], generalTraitsPool[1], generalTraitsPool[3]];
+    } else if (results.primaryPersona === "The Analyst") {
+      selectedTraits = [generalTraitsPool[1], generalTraitsPool[0], generalTraitsPool[3]];
+    } else if (results.primaryPersona === "The Collaborator") {
+      selectedTraits = [generalTraitsPool[2], generalTraitsPool[0], generalTraitsPool[4]];
+    } else if (results.primaryPersona === "The Executor") {
+      selectedTraits = [generalTraitsPool[3], generalTraitsPool[1], generalTraitsPool[2]];
+    } else if (results.primaryPersona === "The Innovator") {
+      selectedTraits = [generalTraitsPool[4], generalTraitsPool[0], generalTraitsPool[2]];
+    }
   }
 
   // Work style preference definitions
-  const sliderDefs = [
+  const sliderDefs = isJava ? [
     {
       key: "solo_vs_team",
       left: "Solo Deep Work",
@@ -251,6 +349,42 @@ export const ResultsView: React.FC<ResultsViewProps> = ({
       descLeft: "Dives deep into JVM internals & bytecode",
       descRight: "Bridges engineering with stakeholders"
     }
+  ] : [
+    {
+      key: "solo_vs_team",
+      left: "Independent Focus",
+      right: "Collaborative Teamwork",
+      descLeft: "Prefers autonomous concentration",
+      descRight: "Thrives in collaborative brainstorming"
+    },
+    {
+      key: "detail_vs_big_picture",
+      left: "Strategic Vision",
+      right: "Operational Precision",
+      descLeft: "Focuses on broad objectives & roadmaps",
+      descRight: "Focuses on exact execution & thoroughness"
+    },
+    {
+      key: "quality_vs_speed",
+      left: "Rapid Execution",
+      right: "Thorough Excellence",
+      descLeft: "Prioritizes prompt delivery & quick iteration",
+      descRight: "Demands meticulous quality & zero errors"
+    },
+    {
+      key: "structured_vs_flexible",
+      left: "Standard Procedures",
+      right: "Adaptive Flexibility",
+      descLeft: "Relies on established workflows & rigor",
+      descRight: "Pivots dynamically with emerging needs"
+    },
+    {
+      key: "tech_vs_comm",
+      left: "Analytical Specialization",
+      right: "Stakeholder Engagement",
+      descLeft: "Dives deep into data & specialized tools",
+      descRight: "Bridges cross-functional departments"
+    }
   ];
 
   const now = new Date();
@@ -268,15 +402,34 @@ export const ResultsView: React.FC<ResultsViewProps> = ({
         <div className="results-hero-header">
           <div className="candidate-info-bar">
             <div>
-              <div className="cand-name">{candidateName || "Alex Morgan"}</div>
-              <div className="cand-meta">Senior Java Developer Profiling Report &bull; Assessment Completed on {dateStr}</div>
+              <div className="cand-name">{candidateName || (isJava ? "Alex Morgan" : "Jordan Taylor")}</div>
+              <div className="cand-meta">
+                {isJava ? 'Senior Java Developer Profiling Report' : 'General Professional Profiling Report'} &bull; Completed on {dateStr}
+              </div>
             </div>
             <div className="results-action-btns">
-              <button className="btn-print" onClick={() => window.print()}>
+              <button 
+                type="button" 
+                className="btn-header" 
+                onClick={onGoHome}
+                style={{ background: '#334155', color: '#f8fafc', border: '1px solid #475569' }}
+              >
+                <span>🏠</span>
+                <span>Back to Home</span>
+              </button>
+              <button 
+                type="button" 
+                className="btn-print" 
+                onClick={() => window.print()}
+              >
                 <span>📄</span>
                 <span>Download / Print PDF</span>
               </button>
-              <button className="btn-retake" onClick={onRetake}>
+              <button 
+                type="button" 
+                className="btn-retake" 
+                onClick={onRetake}
+              >
                 <span>🔄 Retake</span>
               </button>
             </div>
@@ -303,7 +456,7 @@ export const ResultsView: React.FC<ResultsViewProps> = ({
           </div>
         </div>
 
-        {/* 2. DEVELOPER PERSONA CARD */}
+        {/* 2. PERSONA CARD */}
         <div className="persona-card">
           <div className="persona-avatar-box">
             <div className="persona-icon-large">{pData.icon}</div>
@@ -348,141 +501,121 @@ export const ResultsView: React.FC<ResultsViewProps> = ({
         <div className="radar-breakdown-grid">
           {/* 3. Radar Chart Card */}
           <div className="chart-card">
-            <div className="chart-card-title">
-              <span>🎯</span>
-              <span>Competency Radar Analysis</span>
+            <div className="chart-card-header">
+              <span>📊 Multi-Dimensional Competency Radar</span>
             </div>
-            <div className="chart-container-box">
-              <canvas ref={chartCanvasRef}></canvas>
+            <div className="chart-wrapper">
+              <canvas ref={chartCanvasRef} />
             </div>
-            <div style={{ fontSize: '0.725rem', color: '#94a3b8', textAlign: 'center', marginTop: '0.5rem' }}>
-              Normalized across all 150 test questions & category weights
+            <div className="chart-footer-note">
+              Normalized competency score across the 5 evaluated core dimensions (30-100% scale).
             </div>
           </div>
 
-          {/* 4. Category Breakdown Cards */}
-          <div className="category-cards-col">
-            {(Object.keys(CATEGORY_CONFIG) as CategoryType[]).map(catKey => {
-              const config = CATEGORY_CONFIG[catKey];
-              const catScore = results.categoryScores[catKey] || 70;
+          {/* 4. Detailed Category Breakdown */}
+          <div className="categories-card">
+            <div className="chart-card-header">
+              <span>📋 Weighted Category Breakdown</span>
+            </div>
+            <div className="categories-list">
+              {(Object.keys(CATEGORY_CONFIG) as CategoryType[]).map(catKey => {
+                const config = CATEGORY_CONFIG[catKey];
+                const catScore = results.categoryScores[catKey] || 0;
+                const catInterpObj = interpretations[catKey];
+                let interpStr = catInterpObj.moderate;
+                if (catScore >= 85) interpStr = catInterpObj.exceptional;
+                else if (catScore >= 70) interpStr = catInterpObj.strong;
+                else if (catScore < 50) interpStr = catInterpObj.needs_work;
 
-              let levelClass = 'cat-level-strong';
-              let levelLabel = 'Strong';
-              let barColor = '#10b981';
-              let interpKey = 'strong';
+                let scoreColor = 'var(--accent-green)';
+                if (catScore < 50) scoreColor = 'var(--accent-red)';
+                else if (catScore < 70) scoreColor = 'var(--accent-amber)';
 
-              if (catScore >= 85) {
-                levelClass = 'cat-level-exceptional';
-                levelLabel = 'Exceptional';
-                barColor = '#059669';
-                interpKey = 'exceptional';
-              } else if (catScore >= 70) {
-                levelClass = 'cat-level-strong';
-                levelLabel = 'Strong';
-                barColor = '#0284c7';
-                interpKey = 'strong';
-              } else if (catScore >= 50) {
-                levelClass = 'cat-level-moderate';
-                levelLabel = 'Moderate';
-                barColor = '#f59e0b';
-                interpKey = 'moderate';
-              } else {
-                levelClass = 'cat-level-needs-work';
-                levelLabel = 'Needs Work';
-                barColor = '#ef4444';
-                interpKey = 'needs_work';
-              }
+                return (
+                  <div key={catKey} className="category-item-row">
+                    <div className="category-item-top">
+                      <div className="category-name-block">
+                        <span className="category-icon">{config.icon}</span>
+                        <span className="category-label">{config.label}</span>
+                        <span className="category-weight-badge">Weight: {config.weight.toFixed(1)}x</span>
+                      </div>
+                      <div className="category-score-val" style={{ color: scoreColor }}>
+                        {catScore}%
+                      </div>
+                    </div>
+                    <div className="cat-progress-bg">
+                      <div
+                        className="cat-progress-fill"
+                        style={{
+                          width: `${catScore}%`,
+                          backgroundColor: scoreColor
+                        }}
+                      />
+                    </div>
+                    <div className="category-interpretation">
+                      {interpStr}
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        </div>
 
-              const interpText = interpretations[catKey][interpKey];
+        {/* 5. WORK STYLE DIMENSION SLIDERS */}
+        <div className="sliders-section-card">
+          <div className="section-header-box">
+            <h3 className="section-title">⚖️ Work Style & Behavioral Preferences</h3>
+            <p className="section-sub">
+              Empirical continuum representing candidate inclination across core workplace dynamics.
+            </p>
+          </div>
 
+          <div className="sliders-list">
+            {sliderDefs.map(def => {
+              const pct = results.sliderPercentages[def.key] ?? 50;
               return (
-                <div key={catKey} className="category-metric-card">
-                  <div className="cat-card-header">
-                    <div className="cat-name-box">
-                      <span>{config.icon}</span>
-                      <span>{config.label}</span>
-                      <span className="cat-weight-pill">
-                        Weight: {config.weight.toFixed(1)} &bull; {(config.targetShare * 100)}%
-                      </span>
-                    </div>
-                    <div>
-                      <span className="cat-score-val">{catScore}%</span>
-                      <span className={`cat-level-badge ${levelClass}`}>{levelLabel}</span>
+                <div key={def.key} className="slider-row-item">
+                  <div className="slider-pole-labels">
+                    <span className="slider-pole-left">{def.left}</span>
+                    <span className="slider-center-val">{pct}% Right</span>
+                    <span className="slider-pole-right">{def.right}</span>
+                  </div>
+                  <div className="slider-track-container">
+                    <div className="slider-track-bar">
+                      <div
+                        className="slider-pin-indicator"
+                        style={{ left: `${pct}%` }}
+                      />
                     </div>
                   </div>
-                  <div className="cat-progress-track">
-                    <div className="cat-progress-bar" style={{ width: `${catScore}%`, background: barColor }} />
+                  <div className="slider-pole-descs">
+                    <span>{def.descLeft}</span>
+                    <span>{def.descRight}</span>
                   </div>
-                  <div className="cat-desc-text">{interpText}</div>
                 </div>
               );
             })}
           </div>
         </div>
 
-        {/* 5. PERSONALITY TRAITS SUMMARY */}
+        {/* 6. KEY CHARACTERISTICS & STRENGTHS */}
         <div className="traits-section-card">
-          <div className="section-heading-row">
-            <div className="section-heading-title">
-              <span>🧠</span>
-              <span>Dominant Engineering Personality Traits</span>
-            </div>
-            <span style={{ fontSize: '0.75rem', color: '#64748b', fontWeight: 600 }}>Top 3 Detected Traits</span>
+          <div className="section-header-box">
+            <h3 className="section-title">🌟 Distinctive Professional Signatures</h3>
+            <p className="section-sub">
+              Observed behavioral patterns synthesized from candidate situational decision paths.
+            </p>
           </div>
 
           <div className="traits-grid">
-            {selectedTraits.map(item => (
-              <div key={item.tag} className="trait-badge-card">
-                <span className="trait-pill-tag">{item.tag}</span>
-                <div className="trait-headline">{item.headline}</div>
-                <div className="trait-explanation">{item.explanation}</div>
+            {selectedTraits.map((t, idx) => (
+              <div key={idx} className="trait-card">
+                <div className="trait-badge">{t.tag}</div>
+                <div className="trait-headline">{t.headline}</div>
+                <div className="trait-desc">{t.explanation}</div>
               </div>
             ))}
-          </div>
-        </div>
-
-        {/* 6. WORK STYLE PREFERENCES (5 DUAL-SPECTRUM SLIDERS) */}
-        <div className="sliders-section-card">
-          <div className="section-heading-row">
-            <div className="section-heading-title">
-              <span>⚖️</span>
-              <span>Work Style & Operational Preferences</span>
-            </div>
-            <span style={{ fontSize: '0.75rem', color: '#64748b', fontWeight: 600 }}>Dual-Spectrum Continuum</span>
-          </div>
-
-          <div className="sliders-stack">
-            {sliderDefs.map(item => {
-              const pct = results.sliderPercentages[item.key] !== undefined ? results.sliderPercentages[item.key] : 50;
-
-              let leaningNote = "Equally balanced between both poles";
-              if (pct >= 65) {
-                leaningNote = `Strongly leans toward ${item.right} (${pct}%)`;
-              } else if (pct > 50) {
-                leaningNote = `Moderately leans toward ${item.right} (${pct}%)`;
-              } else if (pct <= 35) {
-                leaningNote = `Strongly leans toward ${item.left} (${100 - pct}%)`;
-              } else if (pct < 50) {
-                leaningNote = `Moderately leans toward ${item.left} (${100 - pct}%)`;
-              }
-
-              return (
-                <div key={item.key} className="slider-item-box">
-                  <div className="slider-labels-row">
-                    <span>{item.left}</span>
-                    <span style={{ color: 'var(--navy-accent)' }}>{leaningNote}</span>
-                    <span>{item.right}</span>
-                  </div>
-                  <div className="slider-track">
-                    <div className="slider-thumb-marker" style={{ left: `${pct}%` }} />
-                  </div>
-                  <div className="slider-verdict-note">
-                    <span>{item.descLeft}</span>
-                    <span>{item.descRight}</span>
-                  </div>
-                </div>
-              );
-            })}
           </div>
         </div>
 
@@ -490,32 +623,60 @@ export const ResultsView: React.FC<ResultsViewProps> = ({
         <div className="strengths-weaknesses-grid">
           {/* Top 3 Strengths */}
           <div className="sw-col">
-            <div className="sw-col-header" style={{ color: '#047857' }}>
-              <span>✅</span>
+            <div className="sw-col-header" style={{ color: '#059669' }}>
+              <span>⭐</span>
               <span>Top 3 Core Strengths</span>
             </div>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
-              <div className="sw-card strength">
-                <div className="sw-icon">🟢</div>
-                <div>
-                  <div className="sw-title">Rigorous Testing & Defect Prevention</div>
-                  <div className="sw-desc">Consistently integrates comprehensive unit and integration tests (JUnit 5, Mockito, Testcontainers), safeguarding production against regressions.</div>
-                </div>
-              </div>
-              <div className="sw-card strength">
-                <div className="sw-icon">🟢</div>
-                <div>
-                  <div className="sw-title">Systematic Incident Resolution</div>
-                  <div className="sw-desc">Methodical approach to root-cause diagnosis using heap dumps, thread traces, and GC telemetry rather than applying quick temporary patches.</div>
-                </div>
-              </div>
-              <div className="sw-card strength">
-                <div className="sw-icon">🟢</div>
-                <div>
-                  <div className="sw-title">Constructive Code Review Culture</div>
-                  <div className="sw-desc">Fosters empathetic and actionable pull request dialogues, elevating code quality while maintaining high squad morale.</div>
-                </div>
-              </div>
+              {isJava ? (
+                <>
+                  <div className="sw-card strength">
+                    <div className="sw-icon">🟢</div>
+                    <div>
+                      <div className="sw-title">Rigorous Testing & Defect Prevention</div>
+                      <div className="sw-desc">Consistently integrates comprehensive unit and integration tests (JUnit 5, Mockito, Testcontainers), safeguarding production against regressions.</div>
+                    </div>
+                  </div>
+                  <div className="sw-card strength">
+                    <div className="sw-icon">🟢</div>
+                    <div>
+                      <div className="sw-title">Systematic Incident Resolution</div>
+                      <div className="sw-desc">Methodical approach to root-cause diagnosis using heap dumps, thread traces, and GC telemetry rather than applying quick temporary patches.</div>
+                    </div>
+                  </div>
+                  <div className="sw-card strength">
+                    <div className="sw-icon">🟢</div>
+                    <div>
+                      <div className="sw-title">Constructive Code Review Culture</div>
+                      <div className="sw-desc">Fosters empathetic and actionable pull request dialogues, elevating code quality while maintaining high squad morale.</div>
+                    </div>
+                  </div>
+                </>
+              ) : (
+                <>
+                  <div className="sw-card strength">
+                    <div className="sw-icon">🟢</div>
+                    <div>
+                      <div className="sw-title">Disciplined Execution & Milestone Integrity</div>
+                      <div className="sw-desc">Consistently prioritizes mission-critical deliverables, organizes timelines, and maintains reliable accountability under tight deadlines.</div>
+                    </div>
+                  </div>
+                  <div className="sw-card strength">
+                    <div className="sw-icon">🟢</div>
+                    <div>
+                      <div className="sw-title">Empirical Root-Cause Analysis</div>
+                      <div className="sw-desc">Employs structured data analysis and objective facts rather than intuitive assumptions to resolve workplace bottlenecks and operational friction.</div>
+                    </div>
+                  </div>
+                  <div className="sw-card strength">
+                    <div className="sw-icon">🟢</div>
+                    <div>
+                      <div className="sw-title">Inclusive Collaboration & Active Listening</div>
+                      <div className="sw-desc">Fosters cross-functional trust, bridges departmental silos, and navigates conflicting viewpoints with diplomatic poise and empathy.</div>
+                    </div>
+                  </div>
+                </>
+              )}
             </div>
           </div>
 
@@ -526,20 +687,41 @@ export const ResultsView: React.FC<ResultsViewProps> = ({
               <span>Top 2 Development Opportunities</span>
             </div>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
-              <div className="sw-card improvement">
-                <div className="sw-icon">🟡</div>
-                <div>
-                  <div className="sw-title">Balancing Refactoring with Sprint Velocity</div>
-                  <div className="sw-desc">Ensure ongoing refactoring efforts are pragmatically scoped so that high-priority commercial deadlines remain uncompromised.</div>
-                </div>
-              </div>
-              <div className="sw-card improvement">
-                <div className="sw-icon">🟡</div>
-                <div>
-                  <div className="sw-title">Cross-Functional Stakeholder Storytelling</div>
-                  <div className="sw-desc">Continue refining the ability to translate complex low-level JVM architectural decisions into clear business ROI for non-technical leadership.</div>
-                </div>
-              </div>
+              {isJava ? (
+                <>
+                  <div className="sw-card improvement">
+                    <div className="sw-icon">🟡</div>
+                    <div>
+                      <div className="sw-title">Balancing Refactoring with Sprint Velocity</div>
+                      <div className="sw-desc">Ensure ongoing refactoring efforts are pragmatically scoped so that high-priority commercial deadlines remain uncompromised.</div>
+                    </div>
+                  </div>
+                  <div className="sw-card improvement">
+                    <div className="sw-icon">🟡</div>
+                    <div>
+                      <div className="sw-title">Cross-Functional Stakeholder Storytelling</div>
+                      <div className="sw-desc">Continue refining the ability to translate complex low-level JVM architectural decisions into clear business ROI for non-technical leadership.</div>
+                    </div>
+                  </div>
+                </>
+              ) : (
+                <>
+                  <div className="sw-card improvement">
+                    <div className="sw-icon">🟡</div>
+                    <div>
+                      <div className="sw-title">Balancing Thorough Analysis with Action Speed</div>
+                      <div className="sw-desc">Ensure deep analytical inquiries do not delay operational decisions when rapid, decisive action is critical to capture immediate opportunities.</div>
+                    </div>
+                  </div>
+                  <div className="sw-card improvement">
+                    <div className="sw-icon">🟡</div>
+                    <div>
+                      <div className="sw-title">Managing Work Boundaries Under Prolonged Pressure</div>
+                      <div className="sw-desc">Maintain healthy delegation habits and stress-management techniques to prevent cognitive exhaustion during high-stakes organizational initiatives.</div>
+                    </div>
+                  </div>
+                </>
+              )}
             </div>
           </div>
         </div>
@@ -553,10 +735,10 @@ export const ResultsView: React.FC<ResultsViewProps> = ({
             </div>
             <div className="consistency-text-details">
               {results.consistency.label === "High" && (
-                "Exceptional psychometric consistency detected across all 4 assessment sections. Responses to inverted pairs, overconfidence probes, and social desirability traps demonstrated high self-awareness and authentic engineering honesty. No penalty applied."
+                "Exceptional psychometric consistency detected across all 4 assessment sections. Responses to inverted pairs, overconfidence probes, and social desirability traps demonstrated high self-awareness and authentic honesty. No calibration penalty applied."
               )}
               {results.consistency.label === "Medium" && (
-                `Minor response variations detected across similar scenarios (${results.consistency.overconfidenceTriggers + results.consistency.socialDesirabilityTriggers + results.consistency.consistencyDiscrepancies} minor inconsistencies detected). A modest score adjustment (-${results.consistency.penalty}%) was applied.`
+                `Minor response variations detected across similar scenarios (${results.consistency.overconfidenceTriggers + results.consistency.socialDesirabilityTriggers + results.consistency.consistencyDiscrepancies} minor variances detected). A modest calibration adjustment (-${results.consistency.penalty}%) was applied.`
               )}
               {results.consistency.label === "Low" && (
                 `Noticeable contradictions observed between self-reported habits and situational responses (${results.consistency.overconfidenceTriggers + results.consistency.socialDesirabilityTriggers + results.consistency.consistencyDiscrepancies} variance flags). A calibration deduction (-${results.consistency.penalty}%) was applied to maintain profiling integrity.`
@@ -564,8 +746,28 @@ export const ResultsView: React.FC<ResultsViewProps> = ({
             </div>
           </div>
           <div style={{ fontSize: '0.75rem', color: '#64748b', fontWeight: 600 }}>
-            Audit: 4 Trap Probes &bull; 4 Paraphrase Pairs
+            Audit: 4 Trap Probes &bull; 4 Paraphrase Consistency Pairs
           </div>
+        </div>
+
+        {/* Bottom Actions */}
+        <div style={{ display: 'flex', justifyContent: 'center', gap: '1rem', marginTop: '2rem', flexWrap: 'wrap' }}>
+          <button 
+            type="button"
+            className="btn-primary-action" 
+            onClick={onGoHome}
+            style={{ minWidth: '220px', background: '#334155' }}
+          >
+            <span>🏠 Back to Home Selection</span>
+          </button>
+          <button 
+            type="button"
+            className="btn-primary-action" 
+            onClick={onRetake}
+            style={{ minWidth: '200px' }}
+          >
+            <span>🔄 Retake This Test</span>
+          </button>
         </div>
 
       </div>

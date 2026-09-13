@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
-import { PersonaType } from '../types';
+import { PersonaType, TestType } from '../types';
 
 interface HeaderProps {
-  currentView: 'intro' | 'test' | 'results';
+  currentView: 'landing' | 'intro' | 'test' | 'results';
+  selectedTest: TestType | null;
   currentSection: number;
   currentQuestionId: number;
   totalQuestions: number;
@@ -11,10 +12,12 @@ interface HeaderProps {
   onOpenPalette: () => void;
   onAutoFill: (persona: PersonaType | 'random') => void;
   onReset: () => void;
+  onGoHome: () => void;
 }
 
 export const Header: React.FC<HeaderProps> = ({
   currentView,
+  selectedTest,
   currentSection,
   currentQuestionId,
   totalQuestions,
@@ -22,11 +25,12 @@ export const Header: React.FC<HeaderProps> = ({
   secondsRemaining,
   onOpenPalette,
   onAutoFill,
-  onReset
+  onReset,
+  onGoHome
 }) => {
   const [demoMenuOpen, setDemoMenuOpen] = useState(false);
 
-  const pct = Math.round((answeredCount / totalQuestions) * 100);
+  const pct = totalQuestions > 0 ? Math.round((answeredCount / totalQuestions) * 100) : 0;
 
   const formatTimer = (secs: number) => {
     const hours = Math.floor(secs / 3600);
@@ -54,12 +58,39 @@ export const Header: React.FC<HeaderProps> = ({
   return (
     <header className="app-header">
       <div className="header-container">
-        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', width: '100%', maxWidth: '320px' }}>
-          <div className="brand-logo" onClick={onReset}>
-            <div className="brand-icon">☕</div>
-            <span>JavaDev Profiler</span>
-            <span className="brand-tag">React+TS</span>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
+          <div 
+            className="brand-logo" 
+            onClick={onGoHome}
+            title="Return to Assessment Landing Page"
+            style={{ cursor: 'pointer' }}
+          >
+            <div className="brand-icon">
+              {selectedTest === 'general' ? '👔' : '☕'}
+            </div>
+            <span>
+              {selectedTest === 'general' ? 'ProProfiler' : 'JavaDev Profiler'}
+            </span>
           </div>
+
+          {selectedTest && (
+            <span 
+              className="test-type-badge"
+              style={{
+                fontSize: '0.72rem',
+                fontWeight: 700,
+                background: selectedTest === 'java' ? 'rgba(37, 99, 235, 0.25)' : 'rgba(16, 185, 129, 0.25)',
+                color: selectedTest === 'java' ? '#93c5fd' : '#6ee7b7',
+                border: `1px solid ${selectedTest === 'java' ? '#3b82f6' : '#10b981'}`,
+                padding: '2px 8px',
+                borderRadius: '999px',
+                letterSpacing: '0.02em',
+                whiteSpace: 'nowrap'
+              }}
+            >
+              {selectedTest === 'java' ? 'Java Developer' : 'General Professional'}
+            </span>
+          )}
         </div>
 
         {currentView === 'test' && (
@@ -77,6 +108,17 @@ export const Header: React.FC<HeaderProps> = ({
         )}
 
         <div className="header-actions">
+          {/* Back to Home Button */}
+          <button 
+            type="button" 
+            className="btn-header" 
+            onClick={onGoHome}
+            title="Back to Landing Page"
+          >
+            <span>🏠</span>
+            <span>Home</span>
+          </button>
+
           {currentView === 'test' && (
             <>
               <div className={getTimerClass(secondsRemaining)}>
@@ -84,7 +126,7 @@ export const Header: React.FC<HeaderProps> = ({
                 <span>{formatTimer(secondsRemaining)}</span>
               </div>
 
-              <button className="btn-header" onClick={onOpenPalette}>
+              <button type="button" className="btn-header" onClick={onOpenPalette}>
                 <span>🔢</span>
                 <span>{currentQuestionId}/{totalQuestions}</span>
               </button>
@@ -92,37 +134,67 @@ export const Header: React.FC<HeaderProps> = ({
           )}
 
           {/* Demo Auto-Fill Menu */}
-          <div className="demo-dropdown">
-            <button className="btn-header" onClick={() => setDemoMenuOpen(!demoMenuOpen)}>
-              <span>⚡ Demo Profiles</span>
-              <span>▼</span>
-            </button>
-            {demoMenuOpen && (
-              <div className="demo-menu" onClick={() => setDemoMenuOpen(false)}>
-                <div style={{ fontSize: '0.7rem', color: '#94a3b8', padding: '4px 8px', fontWeight: 700, textTransform: 'uppercase' }}>
-                  Simulate Candidate:
+          {selectedTest && (
+            <div className="demo-dropdown">
+              <button 
+                type="button" 
+                className="btn-header" 
+                onClick={() => setDemoMenuOpen(!demoMenuOpen)}
+              >
+                <span>⚡ Demo Profiles</span>
+                <span>▼</span>
+              </button>
+              {demoMenuOpen && (
+                <div className="demo-menu" onClick={() => setDemoMenuOpen(false)}>
+                  <div style={{ fontSize: '0.7rem', color: '#94a3b8', padding: '4px 8px', fontWeight: 700, textTransform: 'uppercase' }}>
+                    Simulate Candidate:
+                  </div>
+
+                  {selectedTest === 'java' ? (
+                    <>
+                      <button className="demo-item" onClick={() => onAutoFill('The Architect')}>
+                        🏗️ The Architect (Design/Scale)
+                      </button>
+                      <button className="demo-item" onClick={() => onAutoFill('The Debugger')}>
+                        🐛 The Debugger (Root Cause)
+                      </button>
+                      <button className="demo-item" onClick={() => onAutoFill('The Collaborator')}>
+                        🤝 The Collaborator (Team/Sync)
+                      </button>
+                      <button className="demo-item" onClick={() => onAutoFill('The Executor')}>
+                        🚀 The Executor (Delivery/Speed)
+                      </button>
+                      <button className="demo-item" onClick={() => onAutoFill('The Learner')}>
+                        📚 The Learner (Curiosity/Growth)
+                      </button>
+                    </>
+                  ) : (
+                    <>
+                      <button className="demo-item" onClick={() => onAutoFill('The Strategist')}>
+                        🏗️ The Strategist (Vision/Roadmap)
+                      </button>
+                      <button className="demo-item" onClick={() => onAutoFill('The Analyst')}>
+                        🔍 The Analyst (Data/Thoroughness)
+                      </button>
+                      <button className="demo-item" onClick={() => onAutoFill('The Collaborator')}>
+                        🤝 The Collaborator (Empathy/Team)
+                      </button>
+                      <button className="demo-item" onClick={() => onAutoFill('The Executor')}>
+                        🚀 The Executor (Action/Pace)
+                      </button>
+                      <button className="demo-item" onClick={() => onAutoFill('The Innovator')}>
+                        💡 The Innovator (Ideas/Agility)
+                      </button>
+                    </>
+                  )}
+
+                  <button className="demo-item" onClick={() => onAutoFill('random')}>
+                    🎲 Random Simulation
+                  </button>
                 </div>
-                <button className="demo-item" onClick={() => onAutoFill('The Architect')}>
-                  🏗️ The Architect (Design/Scale)
-                </button>
-                <button className="demo-item" onClick={() => onAutoFill('The Debugger')}>
-                  🐛 The Debugger (Root Cause)
-                </button>
-                <button className="demo-item" onClick={() => onAutoFill('The Collaborator')}>
-                  🤝 The Collaborator (Team/Sync)
-                </button>
-                <button className="demo-item" onClick={() => onAutoFill('The Executor')}>
-                  🚀 The Executor (Delivery/Speed)
-                </button>
-                <button className="demo-item" onClick={() => onAutoFill('The Learner')}>
-                  📚 The Learner (Curiosity/Growth)
-                </button>
-                <button className="demo-item" onClick={() => onAutoFill('random')}>
-                  🎲 Random Simulation
-                </button>
-              </div>
-            )}
-          </div>
+              )}
+            </div>
+          )}
         </div>
       </div>
     </header>

@@ -1,0 +1,2622 @@
+[
+  {
+    "id": 1,
+    "section": 1,
+    "type": "likert",
+    "category": "work_style",
+    "text": "I prioritize establishing a structured project plan with clear milestones before jumping into execution.",
+    "scoring": "positive",
+    "trait": "structured_planning",
+    "dimension": "structured_vs_flexible",
+    "dimension_val": -0.9,
+    "persona": "The Strategist",
+    "consistency_pair_id": null,
+    "consistency_relation": null,
+    "trap_type": null
+  },
+  {
+    "id": 2,
+    "section": 1,
+    "type": "likert",
+    "category": "problem_solving",
+    "text": "When faced with an unexpected operational problem, I dig into root causes and objective data before proposing solutions.",
+    "scoring": "positive",
+    "trait": "analytical_rigor",
+    "dimension": "detail_vs_big_picture",
+    "dimension_val": 0.9,
+    "persona": "The Analyst",
+    "consistency_pair_id": null,
+    "consistency_relation": null,
+    "trap_type": null
+  },
+  {
+    "id": 3,
+    "section": 1,
+    "type": "likert",
+    "category": "teamwork",
+    "text": "I proactively seek feedback from colleagues and stakeholders to identify blind spots in my work.",
+    "scoring": "positive",
+    "trait": "receptivity_to_feedback",
+    "dimension": "solo_vs_team",
+    "dimension_val": 0.8,
+    "persona": "The Collaborator",
+    "consistency_pair_id": null,
+    "consistency_relation": null,
+    "trap_type": null
+  },
+  {
+    "id": 4,
+    "section": 1,
+    "type": "likert",
+    "category": "personality",
+    "text": "I remain calm, focused, and constructive when dealing with high-stress deadlines or workplace emergencies.",
+    "scoring": "positive",
+    "trait": "emotional_resilience",
+    "dimension": "structured_vs_flexible",
+    "dimension_val": 0.7,
+    "persona": "The Strategist",
+    "consistency_pair_id": null,
+    "consistency_relation": null,
+    "trap_type": null
+  },
+  {
+    "id": 5,
+    "section": 1,
+    "type": "likert",
+    "category": "work_style",
+    "text": "I ensure every deliverable undergoes rigorous quality checks and verification before sharing it with leadership.",
+    "scoring": "positive",
+    "trait": "quality_discipline",
+    "dimension": "quality_vs_speed",
+    "dimension_val": 1.0,
+    "persona": "The Analyst",
+    "consistency_pair_id": 38,
+    "consistency_relation": "opposite",
+    "trap_type": null
+  },
+  {
+    "id": 6,
+    "section": 1,
+    "type": "likert",
+    "category": "motivation",
+    "text": "I am constantly looking for creative, non-traditional ways to solve existing workplace inefficiencies.",
+    "scoring": "positive",
+    "trait": "innovation_mindset",
+    "dimension": "tech_vs_comm",
+    "dimension_val": -0.8,
+    "persona": "The Innovator",
+    "consistency_pair_id": null,
+    "consistency_relation": null,
+    "trap_type": null
+  },
+  {
+    "id": 7,
+    "section": 1,
+    "type": "likert",
+    "category": "personality",
+    "text": "I never make mistakes in my judgment or professional decisions under pressure.",
+    "scoring": "overconfidence_trap",
+    "trait": "humility",
+    "dimension": null,
+    "dimension_val": null,
+    "persona": null,
+    "consistency_pair_id": null,
+    "consistency_relation": null,
+    "trap_type": "overconfidence"
+  },
+  {
+    "id": 8,
+    "section": 1,
+    "type": "likert",
+    "category": "teamwork",
+    "text": "I actively invest time in supporting teammates who are overwhelmed with heavy workloads.",
+    "scoring": "positive",
+    "trait": "empathy_support",
+    "dimension": "solo_vs_team",
+    "dimension_val": 1.0,
+    "persona": "The Collaborator",
+    "consistency_pair_id": null,
+    "consistency_relation": null,
+    "trap_type": null
+  },
+  {
+    "id": 9,
+    "section": 1,
+    "type": "likert",
+    "category": "problem_solving",
+    "text": "I rely on quantitative metrics and empirical evidence rather than gut feelings when making major recommendations.",
+    "scoring": "positive",
+    "trait": "data_driven",
+    "dimension": "detail_vs_big_picture",
+    "dimension_val": 0.9,
+    "persona": "The Analyst",
+    "consistency_pair_id": null,
+    "consistency_relation": null,
+    "trap_type": null
+  },
+  {
+    "id": 10,
+    "section": 1,
+    "type": "likert",
+    "category": "personality",
+    "text": "I always meet 100% of every deadline regardless of how unrealistic the initial timeline was.",
+    "scoring": "social_desirability_trap",
+    "trait": "honesty",
+    "dimension": null,
+    "dimension_val": null,
+    "persona": null,
+    "consistency_pair_id": null,
+    "consistency_relation": null,
+    "trap_type": "social_desirability"
+  },
+  {
+    "id": 11,
+    "section": 1,
+    "type": "likert",
+    "category": "work_style",
+    "text": "I maintain clear documentation and standardized processes so that any colleague can pick up where I left off.",
+    "scoring": "positive",
+    "trait": "process_clarity",
+    "dimension": "structured_vs_flexible",
+    "dimension_val": -0.8,
+    "persona": "The Strategist",
+    "consistency_pair_id": null,
+    "consistency_relation": null,
+    "trap_type": null
+  },
+  {
+    "id": 12,
+    "section": 1,
+    "type": "likert",
+    "category": "teamwork",
+    "text": "When someone critiques my proposal or work output, I feel defensive and find it difficult to accept their feedback.",
+    "scoring": "negative",
+    "trait": "receptivity_to_feedback",
+    "dimension": "solo_vs_team",
+    "dimension_val": -0.8,
+    "persona": "The Collaborator",
+    "consistency_pair_id": 49,
+    "consistency_relation": "same",
+    "trap_type": null
+  },
+  {
+    "id": 13,
+    "section": 1,
+    "type": "likert",
+    "category": "personality",
+    "text": "I easily adapt my work routine when company priorities or organizational strategies shift unexpectedly.",
+    "scoring": "positive",
+    "trait": "adaptability",
+    "dimension": "structured_vs_flexible",
+    "dimension_val": 0.9,
+    "persona": "The Innovator",
+    "consistency_pair_id": null,
+    "consistency_relation": null,
+    "trap_type": null
+  },
+  {
+    "id": 14,
+    "section": 1,
+    "type": "likert",
+    "category": "problem_solving",
+    "text": "I break large, complex business problems down into measurable sub-components before formulating a strategy.",
+    "scoring": "positive",
+    "trait": "systematic_analysis",
+    "dimension": "detail_vs_big_picture",
+    "dimension_val": 0.8,
+    "persona": "The Analyst",
+    "consistency_pair_id": null,
+    "consistency_relation": null,
+    "trap_type": null
+  },
+  {
+    "id": 15,
+    "section": 1,
+    "type": "likert",
+    "category": "motivation",
+    "text": "I actively study industry trends, new methodologies, and professional best practices in my personal time.",
+    "scoring": "positive",
+    "trait": "continuous_learning",
+    "dimension": "tech_vs_comm",
+    "dimension_val": -0.9,
+    "persona": "The Innovator",
+    "consistency_pair_id": null,
+    "consistency_relation": null,
+    "trap_type": null
+  },
+  {
+    "id": 16,
+    "section": 1,
+    "type": "likert",
+    "category": "work_style",
+    "text": "I have a strong bias for action and prefer shipping a working solution today over waiting for perfection next month.",
+    "scoring": "positive",
+    "trait": "bias_for_action",
+    "dimension": "quality_vs_speed",
+    "dimension_val": -0.9,
+    "persona": "The Executor",
+    "consistency_pair_id": null,
+    "consistency_relation": null,
+    "trap_type": null
+  },
+  {
+    "id": 17,
+    "section": 1,
+    "type": "likert",
+    "category": "teamwork",
+    "text": "In team meetings, I respectfully voice dissenting opinions when I foresee risks that others have overlooked.",
+    "scoring": "positive",
+    "trait": "constructive_advocacy",
+    "dimension": "tech_vs_comm",
+    "dimension_val": 0.7,
+    "persona": "The Strategist",
+    "consistency_pair_id": null,
+    "consistency_relation": null,
+    "trap_type": null
+  },
+  {
+    "id": 18,
+    "section": 1,
+    "type": "likert",
+    "category": "personality",
+    "text": "I have never felt frustrated or annoyed when a project scope was completely changed at the last minute.",
+    "scoring": "social_desirability_trap",
+    "trait": "emotional_honesty",
+    "dimension": null,
+    "dimension_val": null,
+    "persona": null,
+    "consistency_pair_id": null,
+    "consistency_relation": null,
+    "trap_type": "social_desirability"
+  },
+  {
+    "id": 19,
+    "section": 1,
+    "type": "likert",
+    "category": "problem_solving",
+    "text": "I focus on the overarching vision and strategic alignment of a project rather than getting lost in administrative details.",
+    "scoring": "positive",
+    "trait": "big_picture_thinking",
+    "dimension": "detail_vs_big_picture",
+    "dimension_val": -0.9,
+    "persona": "The Strategist",
+    "consistency_pair_id": null,
+    "consistency_relation": null,
+    "trap_type": null
+  },
+  {
+    "id": 20,
+    "section": 1,
+    "type": "likert",
+    "category": "work_style",
+    "text": "I manage my daily tasks with disciplined time-blocking to ensure high-priority deliverables are finished on schedule.",
+    "scoring": "positive",
+    "trait": "time_management",
+    "dimension": "quality_vs_speed",
+    "dimension_val": -0.6,
+    "persona": "The Executor",
+    "consistency_pair_id": null,
+    "consistency_relation": null,
+    "trap_type": null
+  },
+  {
+    "id": 21,
+    "section": 1,
+    "type": "likert",
+    "category": "teamwork",
+    "text": "I am willing to compromise on my personal preferences to reach consensus and maintain team cohesion.",
+    "scoring": "positive",
+    "trait": "team_cohesion",
+    "dimension": "solo_vs_team",
+    "dimension_val": 0.8,
+    "persona": "The Collaborator",
+    "consistency_pair_id": null,
+    "consistency_relation": null,
+    "trap_type": null
+  },
+  {
+    "id": 22,
+    "section": 1,
+    "type": "likert",
+    "category": "personality",
+    "text": "I possess such complete expertise in my domain that I never need guidance or advice from peers or managers.",
+    "scoring": "overconfidence_trap",
+    "trait": "humility",
+    "dimension": null,
+    "dimension_val": null,
+    "persona": null,
+    "consistency_pair_id": null,
+    "consistency_relation": null,
+    "trap_type": "overconfidence"
+  },
+  {
+    "id": 23,
+    "section": 1,
+    "type": "likert",
+    "category": "motivation",
+    "text": "I derive great satisfaction from seeing concrete, measurable business results achieved ahead of schedule.",
+    "scoring": "positive",
+    "trait": "achievement_drive",
+    "dimension": "quality_vs_speed",
+    "dimension_val": -0.8,
+    "persona": "The Executor",
+    "consistency_pair_id": null,
+    "consistency_relation": null,
+    "trap_type": null
+  },
+  {
+    "id": 24,
+    "section": 1,
+    "type": "likert",
+    "category": "work_style",
+    "text": "I leave any workplace process, spreadsheet, or workflow more organized and efficient than I found it.",
+    "scoring": "positive",
+    "trait": "continuous_improvement",
+    "dimension": "quality_vs_speed",
+    "dimension_val": 0.8,
+    "persona": "The Strategist",
+    "consistency_pair_id": 58,
+    "consistency_relation": "same",
+    "trap_type": null
+  },
+  {
+    "id": 25,
+    "section": 1,
+    "type": "likert",
+    "category": "problem_solving",
+    "text": "Before launching an initiative, I evaluate potential risks, dependencies, and long-term organizational impact.",
+    "scoring": "positive",
+    "trait": "risk_foresight",
+    "dimension": "detail_vs_big_picture",
+    "dimension_val": -0.9,
+    "persona": "The Strategist",
+    "consistency_pair_id": null,
+    "consistency_relation": null,
+    "trap_type": null
+  },
+  {
+    "id": 26,
+    "section": 1,
+    "type": "likert",
+    "category": "teamwork",
+    "text": "I proactively share helpful knowledge, templates, and lessons learned with colleagues across other departments.",
+    "scoring": "positive",
+    "trait": "knowledge_sharing",
+    "dimension": "tech_vs_comm",
+    "dimension_val": 1.0,
+    "persona": "The Collaborator",
+    "consistency_pair_id": null,
+    "consistency_relation": null,
+    "trap_type": null
+  },
+  {
+    "id": 27,
+    "section": 1,
+    "type": "likert",
+    "category": "personality",
+    "text": "When a project fails or hits a setback, I bounce back quickly and analyze the experience to learn from it.",
+    "scoring": "positive",
+    "trait": "growth_mindset",
+    "dimension": "structured_vs_flexible",
+    "dimension_val": 0.8,
+    "persona": "The Innovator",
+    "consistency_pair_id": null,
+    "consistency_relation": null,
+    "trap_type": null
+  },
+  {
+    "id": 28,
+    "section": 1,
+    "type": "likert",
+    "category": "work_style",
+    "text": "I tend to rush through deliverables at the end of the day without reviewing them for accuracy or completeness.",
+    "scoring": "negative",
+    "trait": "quality_discipline",
+    "dimension": "quality_vs_speed",
+    "dimension_val": -0.8,
+    "persona": "The Executor",
+    "consistency_pair_id": null,
+    "consistency_relation": null,
+    "trap_type": null
+  },
+  {
+    "id": 29,
+    "section": 1,
+    "type": "likert",
+    "category": "motivation",
+    "text": "I thrive in an open workplace environment where psychological safety and honest dialogue are actively practiced.",
+    "scoring": "positive",
+    "trait": "psychological_safety",
+    "dimension": "structured_vs_flexible",
+    "dimension_val": 0.8,
+    "persona": "The Collaborator",
+    "consistency_pair_id": null,
+    "consistency_relation": null,
+    "trap_type": null
+  },
+  {
+    "id": 30,
+    "section": 1,
+    "type": "likert",
+    "category": "problem_solving",
+    "text": "When evaluating different proposals, I verify the underlying financial calculations and data assumptions thoroughly.",
+    "scoring": "positive",
+    "trait": "due_diligence",
+    "dimension": "detail_vs_big_picture",
+    "dimension_val": 0.8,
+    "persona": "The Analyst",
+    "consistency_pair_id": null,
+    "consistency_relation": null,
+    "trap_type": null
+  },
+  {
+    "id": 31,
+    "section": 1,
+    "type": "likert",
+    "category": "personality",
+    "text": "I readily admit when I do not know an answer instead of pretending to have expertise I lack.",
+    "scoring": "positive",
+    "trait": "intellectual_integrity",
+    "dimension": "tech_vs_comm",
+    "dimension_val": 0.6,
+    "persona": "The Collaborator",
+    "consistency_pair_id": null,
+    "consistency_relation": null,
+    "trap_type": null
+  },
+  {
+    "id": 32,
+    "section": 1,
+    "type": "likert",
+    "category": "work_style",
+    "text": "I possess high persistence and will methodically trace discrepancies until every figure reconciles accurately.",
+    "scoring": "positive",
+    "trait": "meticulous_tenacity",
+    "dimension": "detail_vs_big_picture",
+    "dimension_val": 1.0,
+    "persona": "The Analyst",
+    "consistency_pair_id": null,
+    "consistency_relation": null,
+    "trap_type": null
+  },
+  {
+    "id": 33,
+    "section": 1,
+    "type": "likert",
+    "category": "teamwork",
+    "text": "I prefer working in complete isolation and find it burdensome when colleagues approach me with questions during the day.",
+    "scoring": "negative",
+    "trait": "collaboration_openness",
+    "dimension": "solo_vs_team",
+    "dimension_val": -1.0,
+    "persona": "The Collaborator",
+    "consistency_pair_id": null,
+    "consistency_relation": null,
+    "trap_type": null
+  },
+  {
+    "id": 34,
+    "section": 1,
+    "type": "likert",
+    "category": "problem_solving",
+    "text": "I naturally look for patterns and correlations across seemingly unrelated operational problems.",
+    "scoring": "positive",
+    "trait": "pattern_recognition",
+    "dimension": "detail_vs_big_picture",
+    "dimension_val": -0.7,
+    "persona": "The Innovator",
+    "consistency_pair_id": null,
+    "consistency_relation": null,
+    "trap_type": null
+  },
+  {
+    "id": 35,
+    "section": 1,
+    "type": "likert",
+    "category": "personality",
+    "text": "I have never felt stressed or overwhelmed by multiple competing deadlines at work.",
+    "scoring": "social_desirability_trap",
+    "trait": "self_awareness",
+    "dimension": null,
+    "dimension_val": null,
+    "persona": null,
+    "consistency_pair_id": null,
+    "consistency_relation": null,
+    "trap_type": "social_desirability"
+  },
+  {
+    "id": 36,
+    "section": 1,
+    "type": "likert",
+    "category": "motivation",
+    "text": "I am energized by pioneering new ideas, testing novel concepts, and challenging status-quo assumptions.",
+    "scoring": "positive",
+    "trait": "innovation_drive",
+    "dimension": "tech_vs_comm",
+    "dimension_val": -0.7,
+    "persona": "The Innovator",
+    "consistency_pair_id": null,
+    "consistency_relation": null,
+    "trap_type": null
+  },
+  {
+    "id": 37,
+    "section": 1,
+    "type": "likert",
+    "category": "work_style",
+    "text": "I maintain high personal accountability and consistently follow through on every commitment I make to others.",
+    "scoring": "positive",
+    "trait": "accountability",
+    "dimension": "quality_vs_speed",
+    "dimension_val": -0.6,
+    "persona": "The Executor",
+    "consistency_pair_id": null,
+    "consistency_relation": null,
+    "trap_type": null
+  },
+  {
+    "id": 38,
+    "section": 1,
+    "type": "likert",
+    "category": "work_style",
+    "text": "I believe that double-checking details and reviewing drafts is largely a waste of time that delays fast delivery.",
+    "scoring": "negative",
+    "trait": "quality_discipline",
+    "dimension": "quality_vs_speed",
+    "dimension_val": -1.0,
+    "persona": "The Executor",
+    "consistency_pair_id": 5,
+    "consistency_relation": "opposite",
+    "trap_type": null
+  },
+  {
+    "id": 39,
+    "section": 1,
+    "type": "likert",
+    "category": "teamwork",
+    "text": "When resolving interpersonal team friction, I focus on finding win-win outcomes rather than placing blame.",
+    "scoring": "positive",
+    "trait": "conflict_resolution",
+    "dimension": "tech_vs_comm",
+    "dimension_val": 0.8,
+    "persona": "The Collaborator",
+    "consistency_pair_id": null,
+    "consistency_relation": null,
+    "trap_type": null
+  },
+  {
+    "id": 40,
+    "section": 1,
+    "type": "likert",
+    "category": "personality",
+    "text": "I maintain high self-motivation and deliver strong results even when operating with minimal supervisory direction.",
+    "scoring": "positive",
+    "trait": "self_leadership",
+    "dimension": "solo_vs_team",
+    "dimension_val": -0.5,
+    "persona": "The Executor",
+    "consistency_pair_id": null,
+    "consistency_relation": null,
+    "trap_type": null
+  },
+  {
+    "id": 41,
+    "section": 1,
+    "type": "likert",
+    "category": "problem_solving",
+    "text": "When designing a new workplace initiative, I outline the long-term governance structure and resource requirements.",
+    "scoring": "positive",
+    "trait": "strategic_planning",
+    "dimension": "detail_vs_big_picture",
+    "dimension_val": -0.8,
+    "persona": "The Strategist",
+    "consistency_pair_id": null,
+    "consistency_relation": null,
+    "trap_type": null
+  },
+  {
+    "id": 42,
+    "section": 1,
+    "type": "likert",
+    "category": "work_style",
+    "text": "I systematically analyze industry benchmarks to ensure our internal standards are competitive.",
+    "scoring": "positive",
+    "trait": "benchmarking",
+    "dimension": "solo_vs_team",
+    "dimension_val": -0.8,
+    "persona": "The Analyst",
+    "consistency_pair_id": null,
+    "consistency_relation": null,
+    "trap_type": null
+  },
+  {
+    "id": 43,
+    "section": 1,
+    "type": "likert",
+    "category": "personality",
+    "text": "I can master any completely unfamiliar business domain in just a couple of days without asking anyone for help.",
+    "scoring": "overconfidence_trap",
+    "trait": "humility",
+    "dimension": null,
+    "dimension_val": null,
+    "persona": null,
+    "consistency_pair_id": null,
+    "consistency_relation": null,
+    "trap_type": "overconfidence"
+  },
+  {
+    "id": 44,
+    "section": 1,
+    "type": "likert",
+    "category": "teamwork",
+    "text": "I deliver constructive feedback to colleagues with empathy, clarity, and specific actionable recommendations.",
+    "scoring": "positive",
+    "trait": "empathetic_feedback",
+    "dimension": "tech_vs_comm",
+    "dimension_val": 0.8,
+    "persona": "The Collaborator",
+    "consistency_pair_id": null,
+    "consistency_relation": null,
+    "trap_type": null
+  },
+  {
+    "id": 45,
+    "section": 1,
+    "type": "likert",
+    "category": "motivation",
+    "text": "I am motivated by driving tangible bottom-line growth and seeing projects delivered efficiently.",
+    "scoring": "positive",
+    "trait": "results_orientation",
+    "dimension": "quality_vs_speed",
+    "dimension_val": -0.8,
+    "persona": "The Executor",
+    "consistency_pair_id": null,
+    "consistency_relation": null,
+    "trap_type": null
+  },
+  {
+    "id": 46,
+    "section": 1,
+    "type": "likert",
+    "category": "problem_solving",
+    "text": "I scrutinize reports for statistical anomalies, sample biases, and unverified assumptions before drawing conclusions.",
+    "scoring": "positive",
+    "trait": "critical_thinking",
+    "dimension": "detail_vs_big_picture",
+    "dimension_val": 0.8,
+    "persona": "The Analyst",
+    "consistency_pair_id": null,
+    "consistency_relation": null,
+    "trap_type": null
+  },
+  {
+    "id": 47,
+    "section": 1,
+    "type": "likert",
+    "category": "work_style",
+    "text": "I maintain a well-structured filing and organizational system so information can be retrieved in seconds.",
+    "scoring": "positive",
+    "trait": "operational_hygiene",
+    "dimension": "structured_vs_flexible",
+    "dimension_val": -0.7,
+    "persona": "The Strategist",
+    "consistency_pair_id": null,
+    "consistency_relation": null,
+    "trap_type": null
+  },
+  {
+    "id": 48,
+    "section": 1,
+    "type": "likert",
+    "category": "personality",
+    "text": "I view continuous personal and professional development as an essential lifelong commitment.",
+    "scoring": "positive",
+    "trait": "self_development",
+    "dimension": "quality_vs_speed",
+    "dimension_val": 0.7,
+    "persona": "The Innovator",
+    "consistency_pair_id": null,
+    "consistency_relation": null,
+    "trap_type": null
+  },
+  {
+    "id": 49,
+    "section": 1,
+    "type": "likert",
+    "category": "teamwork",
+    "text": "I appreciate when colleagues challenge my proposals because debate sharpens the final outcome.",
+    "scoring": "positive",
+    "trait": "receptivity_to_feedback",
+    "dimension": "solo_vs_team",
+    "dimension_val": 0.8,
+    "persona": "The Collaborator",
+    "consistency_pair_id": 12,
+    "consistency_relation": "opposite",
+    "trap_type": null
+  },
+  {
+    "id": 50,
+    "section": 1,
+    "type": "likert",
+    "category": "personality",
+    "text": "I have never made a single professional error that caused inconvenience to my team throughout my career.",
+    "scoring": "overconfidence_trap",
+    "trait": "honesty",
+    "dimension": null,
+    "dimension_val": null,
+    "persona": null,
+    "consistency_pair_id": null,
+    "consistency_relation": null,
+    "trap_type": "overconfidence"
+  },
+  {
+    "id": 51,
+    "section": 1,
+    "type": "likert",
+    "category": "problem_solving",
+    "text": "I actively anticipate operational bottlenecks and establish contingency protocols before issues emerge.",
+    "scoring": "positive",
+    "trait": "contingency_planning",
+    "dimension": "detail_vs_big_picture",
+    "dimension_val": -0.6,
+    "persona": "The Strategist",
+    "consistency_pair_id": null,
+    "consistency_relation": null,
+    "trap_type": null
+  },
+  {
+    "id": 52,
+    "section": 1,
+    "type": "likert",
+    "category": "motivation",
+    "text": "I aspire to shape broad organizational strategy and guide cross-functional teams toward a unified purpose.",
+    "scoring": "positive",
+    "trait": "leadership_vision",
+    "dimension": "detail_vs_big_picture",
+    "dimension_val": -1.0,
+    "persona": "The Strategist",
+    "consistency_pair_id": null,
+    "consistency_relation": null,
+    "trap_type": null
+  },
+  {
+    "id": 53,
+    "section": 1,
+    "type": "likert",
+    "category": "work_style",
+    "text": "I look for ways to automate repetitive administrative tasks to free up time for high-value strategic work.",
+    "scoring": "positive",
+    "trait": "efficiency_focus",
+    "dimension": "quality_vs_speed",
+    "dimension_val": -0.8,
+    "persona": "The Executor",
+    "consistency_pair_id": null,
+    "consistency_relation": null,
+    "trap_type": null
+  },
+  {
+    "id": 54,
+    "section": 1,
+    "type": "likert",
+    "category": "teamwork",
+    "text": "I bridge communication silos between different business units to foster cross-functional synergy.",
+    "scoring": "positive",
+    "trait": "cross_functional_alignment",
+    "dimension": "tech_vs_comm",
+    "dimension_val": 0.9,
+    "persona": "The Collaborator",
+    "consistency_pair_id": null,
+    "consistency_relation": null,
+    "trap_type": null
+  },
+  {
+    "id": 55,
+    "section": 1,
+    "type": "likert",
+    "category": "personality",
+    "text": "I show genuine patience and active listening when onboarding a new colleague into our department.",
+    "scoring": "positive",
+    "trait": "patience_listening",
+    "dimension": "tech_vs_comm",
+    "dimension_val": 0.7,
+    "persona": "The Collaborator",
+    "consistency_pair_id": null,
+    "consistency_relation": null,
+    "trap_type": null
+  },
+  {
+    "id": 56,
+    "section": 1,
+    "type": "likert",
+    "category": "personality",
+    "text": "I always agree with every directive from executive leadership without any personal doubt or question.",
+    "scoring": "social_desirability_trap",
+    "trait": "independent_critical_thinking",
+    "dimension": null,
+    "dimension_val": null,
+    "persona": null,
+    "consistency_pair_id": null,
+    "consistency_relation": null,
+    "trap_type": "social_desirability"
+  },
+  {
+    "id": 57,
+    "section": 1,
+    "type": "likert",
+    "category": "problem_solving",
+    "text": "I evaluate both immediate operational feasibility and 3-year strategic implications before deciding on new vendors.",
+    "scoring": "positive",
+    "trait": "holistic_evaluation",
+    "dimension": "structured_vs_flexible",
+    "dimension_val": -0.8,
+    "persona": "The Strategist",
+    "consistency_pair_id": null,
+    "consistency_relation": null,
+    "trap_type": null
+  },
+  {
+    "id": 58,
+    "section": 1,
+    "type": "likert",
+    "category": "work_style",
+    "text": "Whenever I observe an inefficient procedure, I take personal initiative to refine and improve it.",
+    "scoring": "positive",
+    "trait": "continuous_improvement",
+    "dimension": "quality_vs_speed",
+    "dimension_val": 0.9,
+    "persona": "The Strategist",
+    "consistency_pair_id": 24,
+    "consistency_relation": "same",
+    "trap_type": null
+  },
+  {
+    "id": 59,
+    "section": 1,
+    "type": "likert",
+    "category": "teamwork",
+    "text": "I adapt my communication style depending on whether I am speaking with executive leadership, clients, or peer teammates.",
+    "scoring": "positive",
+    "trait": "adaptive_communication",
+    "dimension": "tech_vs_comm",
+    "dimension_val": 1.0,
+    "persona": "The Collaborator",
+    "consistency_pair_id": null,
+    "consistency_relation": null,
+    "trap_type": null
+  },
+  {
+    "id": 60,
+    "section": 1,
+    "type": "likert",
+    "category": "motivation",
+    "text": "I thrive in high-tempo environments where fast decision-making and rapid implementation are celebrated.",
+    "scoring": "positive",
+    "trait": "velocity_drive",
+    "dimension": "quality_vs_speed",
+    "dimension_val": -0.9,
+    "persona": "The Executor",
+    "consistency_pair_id": null,
+    "consistency_relation": null,
+    "trap_type": null
+  },
+  {
+    "id": 61,
+    "section": 2,
+    "type": "forced_choice",
+    "category": "work_style",
+    "text": "When starting a major organizational project, I prefer to:",
+    "option_a": "Formulate the overarching vision, strategic milestones, and organizational governance first",
+    "option_b": "Start executing immediate pilot initiatives to generate early momentum and test real-world traction",
+    "dimension": "detail_vs_big_picture",
+    "dim_val_a": -1.0,
+    "dim_val_b": 1.0,
+    "persona_a": "The Strategist",
+    "persona_b": "The Executor"
+  },
+  {
+    "id": 62,
+    "section": 2,
+    "type": "forced_choice",
+    "category": "teamwork",
+    "text": "When solving a complex workplace challenge, I am more effective when:",
+    "option_a": "Collaborating in real-time brainstorms with colleagues to synthesize diverse viewpoints",
+    "option_b": "Conducting deep, uninterrupted solo research and quantitative analysis before presenting findings",
+    "dimension": "solo_vs_team",
+    "dim_val_a": 1.0,
+    "dim_val_b": -1.0,
+    "persona_a": "The Collaborator",
+    "persona_b": "The Analyst"
+  },
+  {
+    "id": 63,
+    "section": 2,
+    "type": "forced_choice",
+    "category": "work_style",
+    "text": "When approaching a critical project deadline with limited time remaining:",
+    "option_a": "I deliver a thoroughly polished, error-free core deliverable even if secondary scope is postponed",
+    "option_b": "I deliver the complete requested scope on time by accepting minor cosmetic imperfections to iterate later",
+    "dimension": "quality_vs_speed",
+    "dim_val_a": 1.0,
+    "dim_val_b": -1.0,
+    "persona_a": "The Analyst",
+    "persona_b": "The Executor"
+  },
+  {
+    "id": 64,
+    "section": 2,
+    "type": "forced_choice",
+    "category": "problem_solving",
+    "text": "When reviewing a business proposal, I tend to scrutinize:",
+    "option_a": "Strategic alignment with corporate objectives and long-term organizational sustainability",
+    "option_b": "Financial assumptions, unit economics, data accuracy, and granular risk factors",
+    "dimension": "detail_vs_big_picture",
+    "dim_val_a": -1.0,
+    "dim_val_b": 1.0,
+    "persona_a": "The Strategist",
+    "persona_b": "The Analyst"
+  },
+  {
+    "id": 65,
+    "section": 2,
+    "type": "forced_choice",
+    "category": "motivation",
+    "text": "When considering long-term career growth, I feel more energized by:",
+    "option_a": "Developing deep analytical mastery and being recognized as a go-to subject matter expert",
+    "option_b": "Exploring emerging industry trends, business models, and innovative technological transformations",
+    "dimension": "tech_vs_comm",
+    "dim_val_a": -1.0,
+    "dim_val_b": 1.0,
+    "persona_a": "The Analyst",
+    "persona_b": "The Innovator"
+  },
+  {
+    "id": 66,
+    "section": 2,
+    "type": "forced_choice",
+    "category": "work_style",
+    "text": "When improving an inefficient operational procedure, my approach is to:",
+    "option_a": "Implement immediate, practical workflow tweaks that alleviate team bottlenecks right away",
+    "option_b": "Redesign the entire operating model systematically with comprehensive change management",
+    "dimension": "structured_vs_flexible",
+    "dim_val_a": 1.0,
+    "dim_val_b": -1.0,
+    "persona_a": "The Executor",
+    "persona_b": "The Strategist"
+  },
+  {
+    "id": 67,
+    "section": 2,
+    "type": "forced_choice",
+    "category": "teamwork",
+    "text": "In team retrospectives or review meetings, I am naturally inclined to:",
+    "option_a": "Highlight interpersonal dynamics, team morale, and communication friction points",
+    "option_b": "Introduce modern methodologies, creative brainstorming techniques, and novel productivity tools",
+    "dimension": "tech_vs_comm",
+    "dim_val_a": 1.0,
+    "dim_val_b": -1.0,
+    "persona_a": "The Collaborator",
+    "persona_b": "The Innovator"
+  },
+  {
+    "id": 68,
+    "section": 2,
+    "type": "forced_choice",
+    "category": "personality",
+    "text": "When colleagues have conflicting opinions on how to handle an ambiguous issue:",
+    "option_a": "I facilitate an open dialogue to align everyone behind a shared compromise",
+    "option_b": "I gather objective performance data and run financial simulations to let the numbers guide the decision",
+    "dimension": "tech_vs_comm",
+    "dim_val_a": 1.0,
+    "dim_val_b": -1.0,
+    "persona_a": "The Collaborator",
+    "persona_b": "The Analyst"
+  },
+  {
+    "id": 69,
+    "section": 2,
+    "type": "forced_choice",
+    "category": "motivation",
+    "text": "I find greater personal pride in:",
+    "option_a": "Closing a high-stakes client deal or shipping a major product release ahead of schedule",
+    "option_b": "Formulating a multi-year organizational transformation roadmap that sets the company's future direction",
+    "dimension": "detail_vs_big_picture",
+    "dim_val_a": 1.0,
+    "dim_val_b": -1.0,
+    "persona_a": "The Executor",
+    "persona_b": "The Strategist"
+  },
+  {
+    "id": 70,
+    "section": 2,
+    "type": "forced_choice",
+    "category": "problem_solving",
+    "text": "When evaluating a completely new business methodology:",
+    "option_a": "I research academic whitepapers, case studies, and proven corporate frameworks thoroughly first",
+    "option_b": "I immediately run a small-scale pilot experiment to observe how it performs in our actual operations",
+    "dimension": "structured_vs_flexible",
+    "dim_val_a": -1.0,
+    "dim_val_b": 1.0,
+    "persona_a": "The Innovator",
+    "persona_b": "The Executor"
+  },
+  {
+    "id": 71,
+    "section": 2,
+    "type": "forced_choice",
+    "category": "work_style",
+    "text": "In my ideal day-to-day workflow, I prefer:",
+    "option_a": "Clear, unambiguous task descriptions and structured standard operating procedures",
+    "option_b": "Broad, open-ended problem statements where I have the autonomy to define the solution",
+    "dimension": "structured_vs_flexible",
+    "dim_val_a": -1.0,
+    "dim_val_b": 1.0,
+    "persona_a": "The Executor",
+    "persona_b": "The Strategist"
+  },
+  {
+    "id": 72,
+    "section": 2,
+    "type": "forced_choice",
+    "category": "teamwork",
+    "text": "When a colleague delivers a presentation that could be substantially improved:",
+    "option_a": "I schedule a supportive coffee chat to provide constructive, encouraging peer feedback",
+    "option_b": "I point them to innovative presentation frameworks and visual storytelling resources they can explore",
+    "dimension": "solo_vs_team",
+    "dim_val_a": 1.0,
+    "dim_val_b": -1.0,
+    "persona_a": "The Collaborator",
+    "persona_b": "The Innovator"
+  },
+  {
+    "id": 73,
+    "section": 2,
+    "type": "forced_choice",
+    "category": "problem_solving",
+    "text": "When troubleshooting why a business metric dropped unexpectedly:",
+    "option_a": "I dissect granular cohort data, conversion funnels, and operational logs with rigor",
+    "option_b": "I review recent changes in market conditions, competitor releases, and organizational shifts",
+    "dimension": "detail_vs_big_picture",
+    "dim_val_a": 1.0,
+    "dim_val_b": -1.0,
+    "persona_a": "The Analyst",
+    "persona_b": "The Executor"
+  },
+  {
+    "id": 74,
+    "section": 2,
+    "type": "forced_choice",
+    "category": "personality",
+    "text": "When an unexpected crisis disrupts our planned quarterly priorities:",
+    "option_a": "I jump into action, energized by the challenge of resolving urgent operational fires under pressure",
+    "option_b": "I step back to assess the systemic breakdown and formulate a resilient preventative framework",
+    "dimension": "structured_vs_flexible",
+    "dim_val_a": 1.0,
+    "dim_val_b": -1.0,
+    "persona_a": "The Executor",
+    "persona_b": "The Strategist"
+  },
+  {
+    "id": 75,
+    "section": 2,
+    "type": "forced_choice",
+    "category": "motivation",
+    "text": "Between these two achievements, I am prouder of:",
+    "option_a": "Building a strategic governance framework that streamlined operations across 5 departments",
+    "option_b": "Executing a rapid turnaround project that generated immediate quarterly revenue growth",
+    "dimension": "tech_vs_comm",
+    "dim_val_a": -1.0,
+    "dim_val_b": 1.0,
+    "persona_a": "The Strategist",
+    "persona_b": "The Executor"
+  },
+  {
+    "id": 76,
+    "section": 2,
+    "type": "forced_choice",
+    "category": "work_style",
+    "text": "Regarding project planning and execution:",
+    "option_a": "I champion experimenting with agile frameworks and creative ideation spikes",
+    "option_b": "I favor pragmatic, milestone-based execution that emphasizes hitting hard deliverables",
+    "dimension": "structured_vs_flexible",
+    "dim_val_a": -1.0,
+    "dim_val_b": 1.0,
+    "persona_a": "The Innovator",
+    "persona_b": "The Executor"
+  },
+  {
+    "id": 77,
+    "section": 2,
+    "type": "forced_choice",
+    "category": "teamwork",
+    "text": "In a cross-functional squad, my primary strength is:",
+    "option_a": "Fostering strong interpersonal relationships and facilitating consensus among diverse stakeholders",
+    "option_b": "Providing the strategic anchor that keeps the squad focused on high-level organizational goals",
+    "dimension": "tech_vs_comm",
+    "dim_val_a": 1.0,
+    "dim_val_b": -1.0,
+    "persona_a": "The Collaborator",
+    "persona_b": "The Strategist"
+  },
+  {
+    "id": 78,
+    "section": 2,
+    "type": "forced_choice",
+    "category": "personality",
+    "text": "When senior management challenges my strategic proposal:",
+    "option_a": "I view their scrutiny as an exciting learning dialogue to refine and elevate the concept",
+    "option_b": "I defend my recommendations using structured empirical projections and rigorous risk models",
+    "dimension": "structured_vs_flexible",
+    "dim_val_a": 1.0,
+    "dim_val_b": -1.0,
+    "persona_a": "The Innovator",
+    "persona_b": "The Strategist"
+  },
+  {
+    "id": 79,
+    "section": 2,
+    "type": "forced_choice",
+    "category": "problem_solving",
+    "text": "When deciding on a corporate software tool or platform:",
+    "option_a": "I favor whatever tool allows our team to start executing and shipping results immediately",
+    "option_b": "I favor the tool that offers granular audit logs, data transparency, and robust reporting metrics",
+    "dimension": "detail_vs_big_picture",
+    "dim_val_a": -1.0,
+    "dim_val_b": 1.0,
+    "persona_a": "The Executor",
+    "persona_b": "The Analyst"
+  },
+  {
+    "id": 80,
+    "section": 2,
+    "type": "forced_choice",
+    "category": "motivation",
+    "text": "What keeps me most motivated in an organization long-term is:",
+    "option_a": "A forward-thinking culture that rewards out-of-the-box thinking and continuous innovation",
+    "option_b": "A high-velocity delivery culture with rapid execution, visible milestones, and strong momentum",
+    "dimension": "quality_vs_speed",
+    "dim_val_a": 1.0,
+    "dim_val_b": -1.0,
+    "persona_a": "The Innovator",
+    "persona_b": "The Executor"
+  },
+  {
+    "id": 81,
+    "section": 2,
+    "type": "forced_choice",
+    "category": "work_style",
+    "text": "When planning my work week, I prioritize:",
+    "option_a": "Protected blocks of deep focus for analytical modeling, document writing, or financial review",
+    "option_b": "Frequent collaborative checkpoints to ensure teams are synchronized and unblocked",
+    "dimension": "solo_vs_team",
+    "dim_val_a": -1.0,
+    "dim_val_b": 1.0,
+    "persona_a": "The Analyst",
+    "persona_b": "The Collaborator"
+  },
+  {
+    "id": 82,
+    "section": 2,
+    "type": "forced_choice",
+    "category": "teamwork",
+    "text": "When a high-visibility project falls behind schedule:",
+    "option_a": "I rally colleagues, help reallocate workloads, and support teammates under stress",
+    "option_b": "I ruthlessly de-scope non-critical deliverables to ensure core outcomes ship on time",
+    "dimension": "tech_vs_comm",
+    "dim_val_a": 1.0,
+    "dim_val_b": -1.0,
+    "persona_a": "The Collaborator",
+    "persona_b": "The Executor"
+  },
+  {
+    "id": 83,
+    "section": 2,
+    "type": "forced_choice",
+    "category": "personality",
+    "text": "When an operational deployment or event experiences an unexpected failure:",
+    "option_a": "My first instinct is to execute contingency rollbacks to minimize immediate stakeholder disruption",
+    "option_b": "My first instinct is to analyze event logs and diagnostics to isolate the exact point of breakdown",
+    "dimension": "structured_vs_flexible",
+    "dim_val_a": -1.0,
+    "dim_val_b": 1.0,
+    "persona_a": "The Strategist",
+    "persona_b": "The Analyst"
+  },
+  {
+    "id": 84,
+    "section": 2,
+    "type": "forced_choice",
+    "category": "problem_solving",
+    "text": "When choosing between two vendor proposals for a critical company need:",
+    "option_a": "I choose the established, enterprise-grade vendor with proven stability and market compliance",
+    "option_b": "I choose the agile, modern disruptor that offers innovative features and cutting-edge flexibility",
+    "dimension": "structured_vs_flexible",
+    "dim_val_a": -1.0,
+    "dim_val_b": 1.0,
+    "persona_a": "The Strategist",
+    "persona_b": "The Innovator"
+  },
+  {
+    "id": 85,
+    "section": 2,
+    "type": "forced_choice",
+    "category": "motivation",
+    "text": "I am more flattered when peers commend me for:",
+    "option_a": "My analytical precision, depth of insight, and flawless attention to detail",
+    "option_b": "My team spirit, emotional intelligence, and ability to bring people together constructively",
+    "dimension": "tech_vs_comm",
+    "dim_val_a": -1.0,
+    "dim_val_b": 1.0,
+    "persona_a": "The Analyst",
+    "persona_b": "The Collaborator"
+  },
+  {
+    "id": 86,
+    "section": 2,
+    "type": "forced_choice",
+    "category": "work_style",
+    "text": "When approaching complex strategic decisions, I naturally rely on:",
+    "option_a": "Creative lateral thinking, analogous market examples, and non-traditional perspectives",
+    "option_b": "Formal decision-matrix frameworks, established corporate policies, and precedent",
+    "dimension": "structured_vs_flexible",
+    "dim_val_a": 1.0,
+    "dim_val_b": -1.0,
+    "persona_a": "The Innovator",
+    "persona_b": "The Strategist"
+  },
+  {
+    "id": 87,
+    "section": 2,
+    "type": "forced_choice",
+    "category": "teamwork",
+    "text": "If I notice a senior leader proposing an initiative with flawed assumptions:",
+    "option_a": "I prepare a detailed memorandum with factual counter-data and schedule a private briefing",
+    "option_b": "I suggest convening an innovation workshop to explore alternative concepts collaboratively",
+    "dimension": "tech_vs_comm",
+    "dim_val_a": -1.0,
+    "dim_val_b": 1.0,
+    "persona_a": "The Analyst",
+    "persona_b": "The Innovator"
+  },
+  {
+    "id": 88,
+    "section": 2,
+    "type": "forced_choice",
+    "category": "personality",
+    "text": "When handed an ambiguous, ill-defined corporate assignment:",
+    "option_a": "I thrive on the blank canvas and relish the opportunity to define the vision from scratch",
+    "option_b": "I prefer clarifying explicit business boundaries, success criteria, and constraints first",
+    "dimension": "structured_vs_flexible",
+    "dim_val_a": 1.0,
+    "dim_val_b": -1.0,
+    "persona_a": "The Innovator",
+    "persona_b": "The Strategist"
+  },
+  {
+    "id": 89,
+    "section": 2,
+    "type": "forced_choice",
+    "category": "problem_solving",
+    "text": "When navigating cross-departmental alignment:",
+    "option_a": "I establish a long-term shared vision and strategic governance council to coordinate priorities",
+    "option_b": "I institute rigorous data-sharing dashboards and quantitative KPIs to track progress objectively",
+    "dimension": "detail_vs_big_picture",
+    "dim_val_a": -1.0,
+    "dim_val_b": 1.0,
+    "persona_a": "The Strategist",
+    "persona_b": "The Analyst"
+  },
+  {
+    "id": 90,
+    "section": 2,
+    "type": "forced_choice",
+    "category": "motivation",
+    "text": "In my ideal working environment, I spend the majority of my time:",
+    "option_a": "Researching future industry disruptors, exploring new concepts, and designing pilot projects",
+    "option_b": "Optimizing existing operational processes, eliminating inefficiencies, and auditing quality",
+    "dimension": "detail_vs_big_picture",
+    "dim_val_a": -1.0,
+    "dim_val_b": 1.0,
+    "persona_a": "The Innovator",
+    "persona_b": "The Analyst"
+  },
+  {
+    "id": 91,
+    "section": 2,
+    "type": "forced_choice",
+    "category": "work_style",
+    "text": "When writing reports or presentations, my priority is:",
+    "option_a": "Ensuring the message is crystal clear, empathetic, and easily digestable by non-experts",
+    "option_b": "Ensuring the data tables, appendix citations, and analytical models are thoroughly exhaustive",
+    "dimension": "detail_vs_big_picture",
+    "dim_val_a": -1.0,
+    "dim_val_b": 1.0,
+    "persona_a": "The Collaborator",
+    "persona_b": "The Analyst"
+  },
+  {
+    "id": 92,
+    "section": 2,
+    "type": "forced_choice",
+    "category": "teamwork",
+    "text": "When presenting project status updates to executive leadership:",
+    "option_a": "I highlight how the project advances our overarching 3-year strategic growth objectives",
+    "option_b": "I highlight how the initiative has empowered cross-functional collaboration and customer trust",
+    "dimension": "tech_vs_comm",
+    "dim_val_a": -1.0,
+    "dim_val_b": 1.0,
+    "persona_a": "The Strategist",
+    "persona_b": "The Collaborator"
+  },
+  {
+    "id": 93,
+    "section": 2,
+    "type": "forced_choice",
+    "category": "personality",
+    "text": "When a strategic initiative I spent weeks developing is shelved due to budget cuts:",
+    "option_a": "I look forward with curiosity to what new creative opportunities the freed-up resources create",
+    "option_b": "I document the strategic insights and business cases so the assets can be leveraged in the future",
+    "dimension": "structured_vs_flexible",
+    "dim_val_a": 1.0,
+    "dim_val_b": -1.0,
+    "persona_a": "The Innovator",
+    "persona_b": "The Strategist"
+  },
+  {
+    "id": 94,
+    "section": 2,
+    "type": "forced_choice",
+    "category": "problem_solving",
+    "text": "When investigating an operational discrepancy that appears randomly:",
+    "option_a": "I formulate regression models and examine longitudinal data until the mathematical root cause appears",
+    "option_b": "I research novel monitoring tools and AI analytics to predict when the anomaly is likely to recur",
+    "dimension": "detail_vs_big_picture",
+    "dim_val_a": 1.0,
+    "dim_val_b": -1.0,
+    "persona_a": "The Analyst",
+    "persona_b": "The Innovator"
+  },
+  {
+    "id": 95,
+    "section": 2,
+    "type": "forced_choice",
+    "category": "motivation",
+    "text": "Which career trajectory appeals to you more?",
+    "option_a": "Chief Strategy Officer: architecting corporate roadmaps, enterprise expansion, and market positioning",
+    "option_b": "Chief People / Operations Officer: optimizing team performance, cultural cohesion, and mentorship",
+    "dimension": "tech_vs_comm",
+    "dim_val_a": -1.0,
+    "dim_val_b": 1.0,
+    "persona_a": "The Strategist",
+    "persona_b": "The Collaborator"
+  },
+  {
+    "id": 96,
+    "section": 2,
+    "type": "forced_choice",
+    "category": "work_style",
+    "text": "Regarding project governance and management:",
+    "option_a": "I favor lightweight, rapid-iteration cycles that empower quick pivots based on daily feedback",
+    "option_b": "I favor formal stage-gate reviews with documented risk assessments and formal stakeholder sign-offs",
+    "dimension": "structured_vs_flexible",
+    "dim_val_a": 1.0,
+    "dim_val_b": -1.0,
+    "persona_a": "The Executor",
+    "persona_b": "The Strategist"
+  },
+  {
+    "id": 97,
+    "section": 2,
+    "type": "forced_choice",
+    "category": "teamwork",
+    "text": "If a newly hired team member is struggling to understand our department's workflows:",
+    "option_a": "I personally take time to walk them through the processes, offer encouragement, and check in often",
+    "option_b": "I direct them to our training materials and challenge them to identify areas where our workflows can be modernized",
+    "dimension": "solo_vs_team",
+    "dim_val_a": 1.0,
+    "dim_val_b": -1.0,
+    "persona_a": "The Collaborator",
+    "persona_b": "The Innovator"
+  },
+  {
+    "id": 98,
+    "section": 2,
+    "type": "forced_choice",
+    "category": "personality",
+    "text": "When market dynamics force our organization to pivot direction abruptly:",
+    "option_a": "I embrace the operational pivot smoothly and immediately focus on executing the new priorities",
+    "option_b": "I analyze how the pivot alters our long-term competitive moat and recalibrate our strategic roadmap",
+    "dimension": "structured_vs_flexible",
+    "dim_val_a": 1.0,
+    "dim_val_b": -1.0,
+    "persona_a": "The Executor",
+    "persona_b": "The Strategist"
+  },
+  {
+    "id": 99,
+    "section": 2,
+    "type": "forced_choice",
+    "category": "problem_solving",
+    "text": "When choosing between two approaches to solve a customer challenge:",
+    "option_a": "I select the strategic, comprehensive solution that builds lasting organizational capability",
+    "option_b": "I select the pragmatic, fast-acting solution that delivers immediate customer relief today",
+    "dimension": "detail_vs_big_picture",
+    "dim_val_a": -1.0,
+    "dim_val_b": 1.0,
+    "persona_a": "The Strategist",
+    "persona_b": "The Executor"
+  },
+  {
+    "id": 100,
+    "section": 2,
+    "type": "forced_choice",
+    "category": "motivation",
+    "text": "At the end of an annual review cycle, what brings you the greatest satisfaction?",
+    "option_a": "Having exceeded every quantitative execution quota and delivered on all operational promises",
+    "option_b": "Having pioneered a transformative initiative that established a new competitive edge for the company",
+    "dimension": "quality_vs_speed",
+    "dim_val_a": -1.0,
+    "dim_val_b": 1.0,
+    "persona_a": "The Executor",
+    "persona_b": "The Innovator"
+  },
+  {
+    "id": 101,
+    "section": 3,
+    "type": "sjt",
+    "category": "problem_solving",
+    "scenario": "Scenario: A critical monthly financial report submitted to executive leadership shows a 15% revenue discrepancy compared to sales forecasts. The executive meeting is scheduled in two hours.",
+    "question": "What is your immediate and best course of action?",
+    "options": [
+      "Cross-reference transactional ledger data with billing exports to identify whether the variance is driven by delayed invoicing, data ingestion errors, or actual revenue contraction, then prepare an objective variance briefing.",
+      "Quickly adjust the numbers manually in the spreadsheet to align closer to expectations and avoid alarming the leadership team.",
+      "Cancel the executive meeting unilaterally without explaining the mathematical discrepancies to your manager.",
+      "Assume the sales forecasting team made a mistake and send an email accusing them of flawed modeling."
+    ],
+    "best_option": 0,
+    "scores": [
+      1.0,
+      0.1,
+      0.2,
+      0.0
+    ],
+    "persona_tag": "The Analyst"
+  },
+  {
+    "id": 102,
+    "section": 3,
+    "type": "sjt",
+    "category": "work_style",
+    "scenario": "Scenario: Two weeks before the launch of a major corporate initiative, a key departmental dependency informs you that their deliverable will be delayed by three weeks due to resource constraints.",
+    "question": "How do you handle this strategic roadblock?",
+    "options": [
+      "Assess the critical path: collaborate with stakeholders to isolate whether an MVP launch can proceed without the delayed dependency, re-sequence workflow milestones, and transparently present the updated roadmap and risk mitigation to leadership.",
+      "Pressure the delayed department to work mandatory overtime weekends without evaluating if the quality can be maintained.",
+      "Conceal the delay from executive sponsors, hoping that the other department will somehow catch up before anyone notices.",
+      "Publicly complain about the dependency team's lack of competence during the weekly cross-departmental sync."
+    ],
+    "best_option": 0,
+    "scores": [
+      1.0,
+      0.2,
+      0.1,
+      0.0
+    ],
+    "persona_tag": "The Strategist"
+  },
+  {
+    "id": 103,
+    "section": 3,
+    "type": "sjt",
+    "category": "teamwork",
+    "scenario": "Scenario: Two key team members on your project are in an escalating disagreement over how to organize client onboarding, resulting in missed handoffs and tense meetings.",
+    "question": "What is your most constructive intervention?",
+    "options": [
+      "Facilitate a structured, private mediation session where both colleagues can articulate their perspectives without interruption, map out shared operational objectives, and co-design a unified workflow protocol.",
+      "Take the side of the more senior colleague to force a rapid resolution and suppress further debate.",
+      "Ignore the tension and assume that adults in a workplace will eventually resolve interpersonal conflict on their own.",
+      "Report both colleagues to Human Resources immediately without speaking with either of them first."
+    ],
+    "best_option": 0,
+    "scores": [
+      1.0,
+      0.2,
+      0.1,
+      0.0
+    ],
+    "persona_tag": "The Collaborator"
+  },
+  {
+    "id": 104,
+    "section": 3,
+    "type": "sjt",
+    "category": "problem_solving",
+    "scenario": "Scenario: Customer satisfaction scores have dropped by 18% over the past quarter, but customer support reports indicate that ticket resolution times have actually improved.",
+    "question": "How do you diagnose the true underlying driver of this customer dissatisfaction?",
+    "options": [
+      "Conduct a thorough data audit: analyze customer feedback sentiment, repeat ticket rates, first-contact resolution metrics, and customer churn data across tiers to discover what problems remain unresolved despite faster response times.",
+      "Dismiss the satisfaction scores as statistical noise since support ticket response times are looking good.",
+      "Send a mass email blast to all customers offering a generic 5% discount without understanding why they are unhappy.",
+      "Blame the customer support agents and recommend replacing the customer service software platform immediately."
+    ],
+    "best_option": 0,
+    "scores": [
+      1.0,
+      0.1,
+      0.2,
+      0.0
+    ],
+    "persona_tag": "The Analyst"
+  },
+  {
+    "id": 105,
+    "section": 3,
+    "type": "sjt",
+    "category": "teamwork",
+    "scenario": "Scenario: Your department head proposes implementing a costly enterprise software system that duplicates capabilities already provided by an existing tool your squad uses daily.",
+    "question": "How do you address this organizational inefficiency?",
+    "options": [
+      "Prepare an objective cost-benefit analysis comparing licensing fees, feature overlap, user adoption friction, and integration overhead, and request a brief meeting to review the operational tradeoffs with the department head.",
+      "Stay silent in planning sessions but complain bitterly to teammates in private chat channels.",
+      "Blindly comply with the directive, knowing it will waste corporate budget and degrade squad efficiency.",
+      "Publicly challenge and embarrass the department head in front of company leadership during an all-hands meeting."
+    ],
+    "best_option": 0,
+    "scores": [
+      1.0,
+      0.1,
+      0.2,
+      0.0
+    ],
+    "persona_tag": "The Strategist"
+  },
+  {
+    "id": 106,
+    "section": 3,
+    "type": "sjt",
+    "category": "work_style",
+    "scenario": "Scenario: You discover an error in a quarterly financial projection that has already been approved and distributed to divisional leadership. The variance does not alter the bottom line substantially, but reflects an analytical flaw.",
+    "question": "What is the ethical and professional response?",
+    "options": [
+      "Notify your manager immediately with a clear explanation of the mathematical oversight, provide an amended version of the document, and outline a checklist improvement to prevent similar oversights.",
+      "Ignore the error because the financial bottom line is not substantially altered and nobody else noticed.",
+      "Quietly replace the file on the shared drive without notifying anyone and hope nobody compares versions.",
+      "Blame the junior analyst who prepared the initial data inputs if someone eventually catches the mistake."
+    ],
+    "best_option": 0,
+    "scores": [
+      1.0,
+      0.2,
+      0.1,
+      0.0
+    ],
+    "persona_tag": "The Analyst"
+  },
+  {
+    "id": 107,
+    "section": 3,
+    "type": "sjt",
+    "category": "problem_solving",
+    "scenario": "Scenario: Your company is expanding into a new regional market. Your team must design the market entry operations within a tight 3-month window.",
+    "question": "How should the project roadmap be organized?",
+    "options": [
+      "Establish a structured phased strategy: conduct regulatory compliance and customer research first, define clear stage-gate criteria for operational pilots, secure partner alliances, and establish quantitative KPIs for full-scale launch.",
+      "Launch marketing campaigns immediately across all channels before establishing customer service or supply chain foundations.",
+      "Wait until competitors enter the market first and copy their exact operations after 12 months.",
+      "Assemble a 200-page operational manual without launching any market testing until the third year."
+    ],
+    "best_option": 0,
+    "scores": [
+      1.0,
+      0.2,
+      0.1,
+      0.0
+    ],
+    "persona_tag": "The Strategist"
+  },
+  {
+    "id": 108,
+    "section": 3,
+    "type": "sjt",
+    "category": "teamwork",
+    "scenario": "Scenario: A project manager assigns an urgent deadline to your team that requires significant overtime. A teammate confided in you that they are experiencing personal burnout and cannot work extra hours.",
+    "question": "How do you handle this team dynamic?",
+    "options": [
+      "Support the colleague with empathy: collaborate with the project manager to rebalance task allocations across the squad, identify non-essential tasks to defer, and protect the teammate's well-being without compromising core deliverables.",
+      "Tell the teammate that everyone is stressed and that they must endure the overtime like everyone else.",
+      "Gossip about the colleague's personal situation to other teammates so they understand why workloads are uneven.",
+      "Refuse to work on the project yourself in protest and walk out of the planning meeting."
+    ],
+    "best_option": 0,
+    "scores": [
+      1.0,
+      0.1,
+      0.0,
+      0.0
+    ],
+    "persona_tag": "The Collaborator"
+  },
+  {
+    "id": 109,
+    "section": 3,
+    "type": "sjt",
+    "category": "personality",
+    "scenario": "Scenario: A creative marketing campaign you championed and spent six weeks building fails to achieve its projected engagement targets by a wide margin.",
+    "question": "How do you respond to this professional setback?",
+    "options": [
+      "Lead an objective, blameless post-campaign debrief: analyze channel conversion data, pinpoint where audience interest dropped off, document the strategic insights, and apply the learnings to the next iteration.",
+      "Blame the creative agency or the social media algorithms for sabotaging your campaign.",
+      "Deny that the campaign failed and selectively cherry-pick vanity metrics to make the results appear successful.",
+      "Become discouraged, vow never to propose creative ideas again, and retreat into routine administrative tasks."
+    ],
+    "best_option": 0,
+    "scores": [
+      1.0,
+      0.1,
+      0.2,
+      0.0
+    ],
+    "persona_tag": "The Innovator"
+  },
+  {
+    "id": 110,
+    "section": 3,
+    "type": "sjt",
+    "category": "problem_solving",
+    "scenario": "Scenario: Your company is experiencing rapid growth, but internal communication between marketing, sales, and product delivery has become chaotic and siloed.",
+    "question": "What systemic solution do you propose?",
+    "options": [
+      "Establish regular cross-functional sync cadences, define clear RACI matrices (Responsible, Accountable, Consulted, Informed) for shared milestones, and implement a centralized single source of truth for project updates.",
+      "Send daily company-wide emails demanding that everyone communicate more effectively without providing a structured system.",
+      "Isolate your own department and refuse to collaborate with other teams until they fix their own internal problems.",
+      "Hire an external agency to handle all communication between internal employees."
+    ],
+    "best_option": 0,
+    "scores": [
+      1.0,
+      0.1,
+      0.1,
+      0.0
+    ],
+    "persona_tag": "The Strategist"
+  },
+  {
+    "id": 111,
+    "section": 3,
+    "type": "sjt",
+    "category": "work_style",
+    "scenario": "Scenario: You inherit a massive, messy operational spreadsheet used for enterprise client billing that has broken formulas, hidden rows, and no audit trail. You must add billing for a new complex contract tier.",
+    "question": "What is the most sound operational approach?",
+    "options": [
+      "Audit and map the existing workbook logic, build an isolated staging copy to test the new tier calculations, verify historical accuracy against past invoices, and document formula rules for future team maintainers.",
+      "Directly patch a nested IF formula into a live cell in the production spreadsheet and hope nothing breaks.",
+      "Refuse to touch the spreadsheet and demand that management purchase an enterprise billing ERP system before doing any work.",
+      "Manually calculate the client's invoice on a handheld calculator each month and overwrite numbers in the spreadsheet."
+    ],
+    "best_option": 0,
+    "scores": [
+      1.0,
+      0.2,
+      0.1,
+      0.0
+    ],
+    "persona_tag": "The Analyst"
+  },
+  {
+    "id": 112,
+    "section": 3,
+    "type": "sjt",
+    "category": "teamwork",
+    "scenario": "Scenario: During a high-stakes presentation to executive leadership, your department head mistakenly takes full credit for a strategic initiative that you and your teammates spent months researching and designing.",
+    "question": "How do you address this situation professionally?",
+    "options": [
+      "Speak with the department head in private after the meeting, politely express appreciation for executive buy-in, and ask how the team's contributions can be formally recognized in subsequent follow-up communications and organizational reports.",
+      "Interrupt the department head loudly during the executive meeting to claim personal credit in front of everyone.",
+      "Become passive-aggressive, reduce your work output, and complain about your manager to other department heads.",
+      "Send a company-wide email exposing your manager's behavior and demanding an apology."
+    ],
+    "best_option": 0,
+    "scores": [
+      1.0,
+      0.0,
+      0.1,
+      0.0
+    ],
+    "persona_tag": "The Collaborator"
+  },
+  {
+    "id": 113,
+    "section": 3,
+    "type": "sjt",
+    "category": "problem_solving",
+    "scenario": "Scenario: A critical vendor proposes a 30% price increase upon contract renewal, claiming that inflation and supply chain overheads justify the surge.",
+    "question": "How do you prepare for the negotiation?",
+    "options": [
+      "Analyze historical contract pricing, benchmark competing market vendors, quantify your company's transaction volume growth, and present data-backed counter-proposals (e.g. multi-year commitments or tiered discounts) to mitigate the cost hike.",
+      "Accept the 30% increase immediately without question because negotiating takes too much time.",
+      "Threaten to cancel the contract immediately on the spot without checking whether an alternative vendor is ready to onboard.",
+      "Ignore the renewal notice and let the contract lapse into legal default."
+    ],
+    "best_option": 0,
+    "scores": [
+      1.0,
+      0.2,
+      0.1,
+      0.0
+    ],
+    "persona_tag": "The Analyst"
+  },
+  {
+    "id": 114,
+    "section": 3,
+    "type": "sjt",
+    "category": "work_style",
+    "scenario": "Scenario: It is Friday afternoon at 4:00 PM. A critical prospective client requests an urgent proposal adjustment to include custom SLA terms before their Monday morning board review.",
+    "question": "How do you respond?",
+    "options": [
+      "Quickly evaluate the requested terms against company risk guidelines, coordinate brief approval with legal/operations, deliver the updated proposal with a polite professional note, and schedule a Monday follow-up.",
+      "Ignore the client's email until Monday afternoon, assuming they should not expect replies over the weekend.",
+      "Promise the client impossible contract terms without checking company guidelines just to make them happy before closing your laptop.",
+      "Reply rudely that business proposals are never sent outside of standard business hours."
+    ],
+    "best_option": 0,
+    "scores": [
+      1.0,
+      0.2,
+      0.0,
+      0.0
+    ],
+    "persona_tag": "The Executor"
+  },
+  {
+    "id": 115,
+    "section": 3,
+    "type": "sjt",
+    "category": "personality",
+    "scenario": "Scenario: You spent three weeks preparing a detailed organizational roadmap for a proposed corporate initiative. During review, executive leadership decides to adopt an alternative strategic direction that renders your roadmap obsolete.",
+    "question": "What is your attitude and response?",
+    "options": [
+      "Accept the executive decision professionally, extract reusable insights and business cases from your work for future initiatives, and align your energy behind supporting the new strategic direction.",
+      "Argue heatedly with executive leaders and insist that your initiative must proceed anyway.",
+      "Complain constantly to peers in the office about executive leadership having no vision.",
+      "Refuse to work on the new strategic initiative and disengage from team meetings."
+    ],
+    "best_option": 0,
+    "scores": [
+      1.0,
+      0.1,
+      0.1,
+      0.0
+    ],
+    "persona_tag": "The Strategist"
+  },
+  {
+    "id": 116,
+    "section": 3,
+    "type": "sjt",
+    "category": "teamwork",
+    "scenario": "Scenario: An external partner team frequently delivers incomplete data handoffs, forcing your team to do extra cleaning work and delaying internal deadlines.",
+    "question": "How do you resolve this operational friction?",
+    "options": [
+      "Schedule a collaborative working session with the partner team lead to establish mutually agreed data handoff standards, create an input validation template, and streamline the workflow for both squads.",
+      "Retaliate by intentionally withholding your department's deliverables to the partner team.",
+      "Complain to the executive committee about the partner team's incompetence without trying to speak with them first.",
+      "Silently absorb the extra work indefinitely and let your team burn out."
+    ],
+    "best_option": 0,
+    "scores": [
+      1.0,
+      0.0,
+      0.1,
+      0.1
+    ],
+    "persona_tag": "The Collaborator"
+  },
+  {
+    "id": 117,
+    "section": 3,
+    "type": "sjt",
+    "category": "problem_solving",
+    "scenario": "Scenario: A major enterprise client threatens to terminate their contract, claiming that your company's service quality has degraded over the past six months.",
+    "question": "What is your diagnostic and resolution approach?",
+    "options": [
+      "Conduct a thorough service audit: review all client tickets, service uptime, deliverables history, and account communications, arrange a structured review meeting to address root causes transparently, and establish a tangible remediation plan.",
+      "Offer the client a massive discount immediately without finding out what went wrong with the service.",
+      "Deny that service quality dropped and blame the client's internal team for misusing the service.",
+      "Avoid contacting the client in hopes that they will forget their complaint."
+    ],
+    "best_option": 0,
+    "scores": [
+      1.0,
+      0.3,
+      0.0,
+      0.0
+    ],
+    "persona_tag": "The Analyst"
+  },
+  {
+    "id": 118,
+    "section": 3,
+    "type": "sjt",
+    "category": "work_style",
+    "scenario": "Scenario: You are tasked with launching a new client campaign. Your direct manager is traveling internationally for three days and cannot be reached for routine approvals.",
+    "question": "How do you maintain project momentum?",
+    "options": [
+      "Advance the operational foundation: draft materials, prepare vendor agreements, document open decision points clearly, and align key stakeholders so everything is ready for rapid sign-off upon your manager's return.",
+      "Stop all work and take an informal three-day break until your manager returns.",
+      "Make high-risk financial and legal commitments unilaterally without authority, hoping your manager approves later.",
+      "Complain publicly that management is disorganized and that you cannot do your job."
+    ],
+    "best_option": 0,
+    "scores": [
+      1.0,
+      0.1,
+      0.2,
+      0.0
+    ],
+    "persona_tag": "The Executor"
+  },
+  {
+    "id": 119,
+    "section": 3,
+    "type": "sjt",
+    "category": "teamwork",
+    "scenario": "Scenario: During a departmental Q&A presentation, a junior colleague asks an intricate operational question that you do not know the answer to.",
+    "question": "How do you respond?",
+    "options": [
+      "Acknowledge transparently that you do not have that specific data point on hand, thank them for raising a valuable insight, and promise to research the answer and share it with the team by the following morning.",
+      "Concoct an evasive, plausible-sounding answer on the spot to protect your image as an expert.",
+      "Dismiss the question as irrelevant and suggest that the colleague should not ask detailed questions in public.",
+      "Change the subject abruptly and end the presentation early."
+    ],
+    "best_option": 0,
+    "scores": [
+      1.0,
+      0.1,
+      0.0,
+      0.0
+    ],
+    "persona_tag": "The Collaborator"
+  },
+  {
+    "id": 120,
+    "section": 3,
+    "type": "sjt",
+    "category": "problem_solving",
+    "scenario": "Scenario: An established competitor launches a disruptive new AI-driven service feature that threatens to capture a substantial share of your company's core market.",
+    "question": "What is your strategic recommendation?",
+    "options": [
+      "Organize a rapid market intelligence spike: evaluate the competitor's actual capabilities and limitations, identify unique value propositions your company can leverage, and test rapid pilot innovations to differentiate your offering.",
+      "Panic and demand that your company copy the competitor's feature overnight without understanding customer needs.",
+      "Dismiss the competitor's technology as a passing fad that will fade away on its own.",
+      "Recommend cutting your company's pricing by 50% to retain customers through price wars."
+    ],
+    "best_option": 0,
+    "scores": [
+      1.0,
+      0.2,
+      0.1,
+      0.1
+    ],
+    "persona_tag": "The Innovator"
+  },
+  {
+    "id": 121,
+    "section": 3,
+    "type": "sjt",
+    "category": "work_style",
+    "scenario": "Scenario: Your team has been debating two different operational approaches for three consecutive weeks in meetings without reaching a consensus, stalling execution.",
+    "question": "How do you break the analysis paralysis?",
+    "options": [
+      "Propose a time-boxed, low-risk pilot comparison: define clear 14-day success criteria for both approaches, test them with a small control group, and let empirical performance data determine the final path forward.",
+      "Force a vote immediately regardless of whether key technical questions have been evaluated.",
+      "Let the debate continue indefinitely until everyone agrees 100% on every minor detail.",
+      "Abandon the project completely because the team cannot reach consensus."
+    ],
+    "best_option": 0,
+    "scores": [
+      1.0,
+      0.3,
+      0.1,
+      0.0
+    ],
+    "persona_tag": "The Executor"
+  },
+  {
+    "id": 122,
+    "section": 3,
+    "type": "sjt",
+    "category": "personality",
+    "scenario": "Scenario: You realize that an error in your calculation caused your team to overspend its monthly budget by 10%.",
+    "question": "How do you handle this mistake?",
+    "options": [
+      "Notify your manager immediately, take full accountability, explain the root cause of the miscalculation, and propose a budget reallocation plan to balance out expenditures over the next quarter.",
+      "Attempt to adjust other spreadsheet categories secretly to conceal the budget deficit.",
+      "Blame external vendors for increasing prices without prior notification.",
+      "Wait until the finance department discovers the discrepancy during quarterly audits and act surprised."
+    ],
+    "best_option": 0,
+    "scores": [
+      1.0,
+      0.1,
+      0.0,
+      0.0
+    ],
+    "persona_tag": "The Collaborator"
+  },
+  {
+    "id": 123,
+    "section": 3,
+    "type": "sjt",
+    "category": "teamwork",
+    "scenario": "Scenario: A team member frequently interrupts others during meetings, dominating discussions and silencing quieter colleagues.",
+    "question": "What is the best approach to balance meeting dynamics?",
+    "options": [
+      "Institute structured meeting hygiene: introduce agenda rounds, actively invite input from quieter colleagues, and speak privately with the dominant colleague to share constructive feedback on facilitating collaborative team dialogue.",
+      "Shout over the interrupting colleague during meetings to put them in their place.",
+      "Exclude the colleague from future team meetings without explaining why.",
+      "Say nothing and let the colleague continue dominating every conversation."
+    ],
+    "best_option": 0,
+    "scores": [
+      1.0,
+      0.1,
+      0.1,
+      0.0
+    ],
+    "persona_tag": "The Collaborator"
+  },
+  {
+    "id": 124,
+    "section": 3,
+    "type": "sjt",
+    "category": "problem_solving",
+    "scenario": "Scenario: Your company's employee onboarding program has remained unchanged for 7 years and receives low satisfaction ratings from new hires.",
+    "question": "How do you approach modernizing it?",
+    "options": [
+      "Gather feedback from recent new hires, benchmark modern interactive onboarding methodologies (peer cohorts, digital learning paths, culture buddies), and launch an updated pilot onboarding journey for the next cohort.",
+      "Order new company swag and branded mugs, assuming merchandise will solve the dissatisfaction.",
+      "Make the onboarding manual twice as long and mandate an exam at the end of the first week.",
+      "Abolish onboarding entirely and let new hires figure out company systems on their own."
+    ],
+    "best_option": 0,
+    "scores": [
+      1.0,
+      0.2,
+      0.1,
+      0.0
+    ],
+    "persona_tag": "The Innovator"
+  },
+  {
+    "id": 125,
+    "section": 3,
+    "type": "sjt",
+    "category": "work_style",
+    "scenario": "Scenario: You are assigned a complex workflow that could either be designed as a simple checklist or built into a sophisticated multi-stage automated workflow software.",
+    "question": "How do you decide?",
+    "options": [
+      "Evaluate expected transaction volume and complexity: start with a clear, lightweight process that can be deployed today; if operational scale and error rates justify it, invest in full software automation.",
+      "Immediately invest months building the most complex software system possible before testing the underlying workflow.",
+      "Never adopt software tools under any circumstances, even when volume reaches thousands of transactions a day.",
+      "Delegate the decision to an intern without providing business criteria."
+    ],
+    "best_option": 0,
+    "scores": [
+      1.0,
+      0.2,
+      0.1,
+      0.0
+    ],
+    "persona_tag": "The Executor"
+  },
+  {
+    "id": 126,
+    "section": 3,
+    "type": "sjt",
+    "category": "teamwork",
+    "scenario": "Scenario: During a peer review of your strategic brief, a colleague leaves 20 detailed stylistic nitpicks on phrasing and punctuation, but ignores the core commercial proposals.",
+    "question": "How do you respond constructively?",
+    "options": [
+      "Thank them for catching grammatical polish, incorporate the helpful wording edits, and politely ask for their perspective on the substantive commercial proposals and strategic assumptions.",
+      "Send an angry message telling them that they missed the whole point of the document.",
+      "Delete their comments and submit the document without addressing any feedback.",
+      "Open their latest report and leave 40 petty spelling criticisms to get even."
+    ],
+    "best_option": 0,
+    "scores": [
+      1.0,
+      0.0,
+      0.1,
+      0.0
+    ],
+    "persona_tag": "The Collaborator"
+  },
+  {
+    "id": 127,
+    "section": 3,
+    "type": "sjt",
+    "category": "personality",
+    "scenario": "Scenario: Your company is introducing a new enterprise CRM tool that will fundamentally alter how your team logs client interactions. Many colleagues are resisting the change.",
+    "question": "What attitude and role do you adopt?",
+    "options": [
+      "Adopt a growth mindset: master the new tool early, discover time-saving tips, and help colleagues navigate the transition by hosting informal peer coaching sessions.",
+      "Join in the complaints and refuse to use the new system until management threatens disciplinary action.",
+      "Pretend to use the system while maintaining old habits secretly on personal sticky notes.",
+      "Transfer to another department solely to avoid learning the new software."
+    ],
+    "best_option": 0,
+    "scores": [
+      1.0,
+      0.1,
+      0.1,
+      0.0
+    ],
+    "persona_tag": "The Innovator"
+  },
+  {
+    "id": 128,
+    "section": 3,
+    "type": "sjt",
+    "category": "problem_solving",
+    "scenario": "Scenario: A key client requires a custom data report within 48 hours, but your department's standard reporting queue has a 10-day backlog.",
+    "question": "How do you balance responsiveness with team standards?",
+    "options": [
+      "Evaluate the priority and business value with your manager, identify if a standardized template can satisfy the client's immediate needs in 48 hours, and schedule the fully automated report for standard queue delivery.",
+      "Jump the entire queue unilaterally without consulting anyone, pushing back everyone else's commitments.",
+      "Flatly refuse the client's request without offering any interim summary data or alternative solutions.",
+      "Work through the night secretly without logging hours or letting your team know you bypassed the queue."
+    ],
+    "best_option": 0,
+    "scores": [
+      1.0,
+      0.2,
+      0.1,
+      0.1
+    ],
+    "persona_tag": "The Executor"
+  },
+  {
+    "id": 129,
+    "section": 3,
+    "type": "sjt",
+    "category": "work_style",
+    "scenario": "Scenario: Your department is rolling out an updated client pricing model that will take effect next month. You need to ensure sales operations transition smoothly.",
+    "question": "How do you manage this operational transition?",
+    "options": [
+      "Establish a phased transition plan: provide clear pricing calculators, run brief training sessions for account managers, prepare client FAQ sheets, and maintain a rapid-response channel during the first two weeks of rollout.",
+      "Send a one-line email with the new price sheet at 5 PM on the day before it takes effect.",
+      "Delay the pricing update for six months because training staff takes too much effort.",
+      "Let salespeople quote whatever prices they want with zero consistency."
+    ],
+    "best_option": 0,
+    "scores": [
+      1.0,
+      0.1,
+      0.1,
+      0.0
+    ],
+    "persona_tag": "The Executor"
+  },
+  {
+    "id": 130,
+    "section": 3,
+    "type": "sjt",
+    "category": "motivation",
+    "scenario": "Scenario: You are offered two project assignments: Option 1 is managing a routine monthly operational checklist that is predictable and safe; Option 2 is leading a novel market pilot testing an unproven service offering with high visibility and creative autonomy.",
+    "question": "Which assignment motivates you more and why?",
+    "options": [
+      "Option 2, because the opportunity to explore uncharted territory, solve novel challenges, and build an innovative offering accelerates my professional growth.",
+      "Option 1, because routine tasks require minimal thinking and zero risk of making mistakes.",
+      "Neither, because both options require accountability and attending status meetings.",
+      "Whichever option allows me to leave the office earliest every day."
+    ],
+    "best_option": 0,
+    "scores": [
+      1.0,
+      0.3,
+      0.0,
+      0.0
+    ],
+    "persona_tag": "The Innovator"
+  },
+  {
+    "id": 131,
+    "section": 4,
+    "type": "motivation",
+    "category": "motivation",
+    "text": "What type of workplace accomplishment gives you the deepest sense of fulfillment?",
+    "options": [
+      "Designing a long-term strategic plan that guides organizational growth over several years",
+      "Uncovering an intricate data pattern or financial insight that prevents a costly business mistake",
+      "Mentoring teammates and fostering an inclusive, high-trust team culture where people thrive",
+      "Pioneering an innovative business model or testing a creative new service concept"
+    ],
+    "persona_map": [
+      "The Strategist",
+      "The Analyst",
+      "The Collaborator",
+      "The Innovator"
+    ],
+    "scores": [
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ]
+  },
+  {
+    "id": 132,
+    "section": 4,
+    "type": "motivation",
+    "category": "motivation",
+    "text": "When evaluating a new job opportunity, what factor is most critical to your workplace satisfaction?",
+    "options": [
+      "Clear corporate vision, strategic organizational alignment, and thoughtful leadership",
+      "High autonomy to investigate complex operational data and ensure high rigor",
+      "A collaborative, supportive team culture with psychological safety and transparent feedback",
+      "A fast-paced delivery environment where ideas turn into rapid commercial execution"
+    ],
+    "persona_map": [
+      "The Strategist",
+      "The Analyst",
+      "The Collaborator",
+      "The Executor"
+    ],
+    "scores": [
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ]
+  },
+  {
+    "id": 133,
+    "section": 4,
+    "type": "motivation",
+    "category": "motivation",
+    "text": "Which aspect of professional excellence excites you the most?",
+    "options": [
+      "Strategic systems thinking: organizing complex operations into coherent, scalable frameworks",
+      "Analytical depth: leveraging empirical data, metrics, and quantitative modeling for sound decisions",
+      "Action velocity: cutting through bureaucracy to deliver rapid, tangible business outcomes",
+      "Continuous innovation: experimenting with cutting-edge tools, paradigms, and market disruptors"
+    ],
+    "persona_map": [
+      "The Strategist",
+      "The Analyst",
+      "The Executor",
+      "The Innovator"
+    ],
+    "scores": [
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ]
+  },
+  {
+    "id": 134,
+    "section": 4,
+    "type": "motivation",
+    "category": "motivation",
+    "text": "What represents the pinnacle of professional recognition for your work?",
+    "options": [
+      "Having your strategic roadmap adopted as the corporate standard across multiple business divisions",
+      "Being sought after as the ultimate analytical troubleshooter who can dissect any complex problem",
+      "Being recognized by colleagues as an inspiring mentor and an exceptional team builder",
+      "Being celebrated as a visionary innovator who pioneered transformative ideas that elevated the company"
+    ],
+    "persona_map": [
+      "The Strategist",
+      "The Analyst",
+      "The Collaborator",
+      "The Innovator"
+    ],
+    "scores": [
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ]
+  },
+  {
+    "id": 135,
+    "section": 4,
+    "type": "motivation",
+    "category": "motivation",
+    "text": "How do you prefer to keep your professional skills sharp and competitive?",
+    "options": [
+      "Reading executive strategy books, industry whitepapers, and corporate case studies",
+      "Mastering advanced analytical tools, statistical methods, and quantitative modeling platforms",
+      "Attending innovation conferences, design-thinking workshops, and exploring emerging trends",
+      "Executing real-world projects rapidly and learning through live operational feedback"
+    ],
+    "persona_map": [
+      "The Strategist",
+      "The Analyst",
+      "The Innovator",
+      "The Executor"
+    ],
+    "scores": [
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ]
+  },
+  {
+    "id": 136,
+    "section": 4,
+    "type": "motivation",
+    "category": "motivation",
+    "text": "What is your primary focus when reviewing proposals or deliverables from colleagues?",
+    "options": [
+      "Ensuring long-term strategic alignment with corporate objectives and organizational sustainability",
+      "Checking data accuracy, financial projections, operational feasibility, and risk exposure",
+      "Providing empowering, constructive encouragement that boosts the author's confidence and skills",
+      "Ensuring the plan is streamlined, practical, and ready for rapid implementation without delay"
+    ],
+    "persona_map": [
+      "The Strategist",
+      "The Analyst",
+      "The Collaborator",
+      "The Executor"
+    ],
+    "scores": [
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ]
+  },
+  {
+    "id": 137,
+    "section": 4,
+    "type": "motivation",
+    "category": "motivation",
+    "text": "Which work environment empowers your greatest productivity?",
+    "options": [
+      "An organization with well-defined strategic roadmaps, clear accountability, and structured governance",
+      "Quiet, distraction-free focus blocks where I can dive deeply into analytical research and data models",
+      "An energetic, collaborative workplace with frequent brainstorming and open cross-functional dialogue",
+      "A learning-oriented environment that encourages creative risk-taking, experimentation, and hackathons"
+    ],
+    "persona_map": [
+      "The Strategist",
+      "The Analyst",
+      "The Collaborator",
+      "The Innovator"
+    ],
+    "scores": [
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ]
+  },
+  {
+    "id": 138,
+    "section": 4,
+    "type": "motivation",
+    "category": "motivation",
+    "text": "What drives you most to implement standardized operational processes?",
+    "options": [
+      "Creating a resilient framework that allows the organization to scale smoothly without chaos",
+      "Minimizing errors, discrepancies, and operational compliance risks through systematic checkpoints",
+      "Providing clarity and psychological safety so team members can work without stress or ambiguity",
+      "Automating administrative friction so the squad can move faster and ship outcomes with velocity"
+    ],
+    "persona_map": [
+      "The Strategist",
+      "The Analyst",
+      "The Collaborator",
+      "The Executor"
+    ],
+    "scores": [
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ]
+  },
+  {
+    "id": 139,
+    "section": 4,
+    "type": "motivation",
+    "category": "motivation",
+    "text": "When evaluating a company's workplace culture, what is your biggest red flag?",
+    "options": [
+      "Lack of long-term vision, knee-jerk strategic pivots, and chaotic organizational leadership",
+      "Ignoring objective data, tolerating sloppy reporting, and making decisions based on office politics",
+      "Toxic interpersonal competition, blame-oriented meetings, and lack of psychological safety",
+      "Resistance to change, where leadership clings stubbornly to outdated practices and fears innovation"
+    ],
+    "persona_map": [
+      "The Strategist",
+      "The Analyst",
+      "The Collaborator",
+      "The Innovator"
+    ],
+    "scores": [
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ]
+  },
+  {
+    "id": 140,
+    "section": 4,
+    "type": "motivation",
+    "category": "motivation",
+    "text": "How do you view operational debt and legacy procedures?",
+    "options": [
+      "A strategic priority that must be systematically phased out through planned transformation roadmaps",
+      "An analytical risk that must be methodically audited, quantified, and resolved with data",
+      "A collective team challenge best addressed through collaborative improvement workshops",
+      "A pragmatic reality that should be bypassed whenever it threatens urgent commercial execution"
+    ],
+    "persona_map": [
+      "The Strategist",
+      "The Analyst",
+      "The Collaborator",
+      "The Executor"
+    ],
+    "scores": [
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ]
+  },
+  {
+    "id": 141,
+    "section": 4,
+    "type": "motivation",
+    "category": "motivation",
+    "text": "What role do you naturally gravitate toward in a collaborative project?",
+    "options": [
+      "The Strategic Planner: establishing the roadmap, aligning stakeholders, and setting milestones",
+      "The Analytical Anchor: validating assumptions, modeling scenarios, and ensuring accuracy",
+      "The Creative Spark: challenging assumptions, suggesting fresh angles, and prototyping new ideas",
+      "The Execution Driver: keeping momentum high, eliminating roadblocks, and driving milestones to completion"
+    ],
+    "persona_map": [
+      "The Strategist",
+      "The Analyst",
+      "The Innovator",
+      "The Executor"
+    ],
+    "scores": [
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ]
+  },
+  {
+    "id": 142,
+    "section": 4,
+    "type": "motivation",
+    "category": "motivation",
+    "text": "What gives you the highest confidence before launching a major commercial initiative?",
+    "options": [
+      "Comprehensive risk assessments, stakeholder sign-offs, and clear contingency plans",
+      "Rigorous market validation data, audited financial projections, and empirical pilot results",
+      "Full cross-functional team consensus and strong psychological buy-in from all stakeholders",
+      "An agile rollout strategy where early customer feedback can be acted upon in real time"
+    ],
+    "persona_map": [
+      "The Strategist",
+      "The Analyst",
+      "The Collaborator",
+      "The Executor"
+    ],
+    "scores": [
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ]
+  },
+  {
+    "id": 143,
+    "section": 4,
+    "type": "motivation",
+    "category": "motivation",
+    "text": "When tasked with revitalizing an underperforming operational department:",
+    "options": [
+      "Redesigning the department's operating model and strategic positioning for long-term growth",
+      "Auditing operational metrics and performance data to identify the exact root causes of friction",
+      "Modernizing the department's culture and tools through innovative, creative working methods",
+      "Implementing quick operational wins to immediately boost morale and commercial performance"
+    ],
+    "persona_map": [
+      "The Strategist",
+      "The Analyst",
+      "The Innovator",
+      "The Executor"
+    ],
+    "scores": [
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ]
+  },
+  {
+    "id": 144,
+    "section": 4,
+    "type": "motivation",
+    "category": "motivation",
+    "text": "Which professional milestone brings you the strongest sense of accomplishment?",
+    "options": [
+      "Successfully executing a multi-department reorganization that increased company-wide efficiency",
+      "Conducting a deep analytical audit that saved the company millions of dollars in operational waste",
+      "Mentoring an associate colleague from onboarding into a confident, independent team leader",
+      "Pioneering a creative new service line that became a major growth driver for the organization"
+    ],
+    "persona_map": [
+      "The Strategist",
+      "The Analyst",
+      "The Collaborator",
+      "The Innovator"
+    ],
+    "scores": [
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ]
+  },
+  {
+    "id": 145,
+    "section": 4,
+    "type": "motivation",
+    "category": "motivation",
+    "text": "What is your primary philosophy regarding professional simplicity?",
+    "options": [
+      "Simplicity means clear organizational structures, clean governance, and unambiguous strategic vision",
+      "Simplicity means clean data models, transparent reporting metrics, and zero confusing jargon",
+      "Simplicity means workflows that any team member can easily understand and execute without stress",
+      "Simplicity means doing whatever delivers the required business outcome with the least administrative delay"
+    ],
+    "persona_map": [
+      "The Strategist",
+      "The Analyst",
+      "The Collaborator",
+      "The Executor"
+    ],
+    "scores": [
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ]
+  },
+  {
+    "id": 146,
+    "section": 4,
+    "type": "motivation",
+    "category": "motivation",
+    "text": "What is your perspective on adopting innovative tools and methodologies?",
+    "options": [
+      "Adopt judiciously: evaluate organizational readiness, training costs, and enterprise stability first",
+      "Benchmark rigorously: quantify productivity gains and ROI metrics through comparative pilots",
+      "Decide collaboratively: ensure team members are consulted and comfortable with the transition",
+      "Experiment eagerly: try novel tools and techniques in small spikes to maintain a competitive advantage"
+    ],
+    "persona_map": [
+      "The Strategist",
+      "The Analyst",
+      "The Collaborator",
+      "The Innovator"
+    ],
+    "scores": [
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ]
+  },
+  {
+    "id": 147,
+    "section": 4,
+    "type": "motivation",
+    "category": "motivation",
+    "text": "What motivates you most to write comprehensive documentation and guidelines?",
+    "options": [
+      "Preserving organizational knowledge and ensuring strategic continuity as the company grows",
+      "Providing an unambiguous reference manual that minimizes operational discrepancies and errors",
+      "Lowering the onboarding barrier so new team members feel welcomed, empowered, and supported",
+      "Documenting best practices so future innovation can build upon strong foundations"
+    ],
+    "persona_map": [
+      "The Strategist",
+      "The Analyst",
+      "The Collaborator",
+      "The Innovator"
+    ],
+    "scores": [
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ]
+  },
+  {
+    "id": 148,
+    "section": 4,
+    "type": "motivation",
+    "category": "motivation",
+    "text": "How do you approach work-life sustainability and high performance?",
+    "options": [
+      "By enforcing proactive planning and strategic prioritization that prevents last-minute panics",
+      "By maintaining disciplined scheduling, deep focus routines, and minimizing unproductive meetings",
+      "By building mutual team support where colleagues look out for one another's emotional well-being",
+      "By working with high focus and velocity during work hours so deliverables are closed on time"
+    ],
+    "persona_map": [
+      "The Strategist",
+      "The Analyst",
+      "The Collaborator",
+      "The Executor"
+    ],
+    "scores": [
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ]
+  },
+  {
+    "id": 149,
+    "section": 4,
+    "type": "motivation",
+    "category": "motivation",
+    "text": "What is your favorite type of professional conversation with colleagues?",
+    "options": [
+      "Debating multi-year business strategies, market shifts, and competitive corporate positioning",
+      "Analyzing empirical market research, customer behavior metrics, and financial performance data",
+      "Brainstorming creative, out-of-the-box business models and innovative growth experiments",
+      "Planning actionable sprint execution steps for upcoming project deliverables"
+    ],
+    "persona_map": [
+      "The Strategist",
+      "The Analyst",
+      "The Innovator",
+      "The Executor"
+    ],
+    "scores": [
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ]
+  },
+  {
+    "id": 150,
+    "section": 4,
+    "type": "motivation",
+    "category": "motivation",
+    "text": "Ultimately, what defines an 'Exceptional Professional' in your eyes?",
+    "options": [
+      "One who builds enduring, scalable systems and guides organizations with long-term strategic wisdom",
+      "One who brings rigorous analytical integrity, empirical truth, and deep critical thinking to decisions",
+      "One who elevates everyone around them, fosters high trust, and champions collaborative human dignity",
+      "One who consistently converts ambitious vision into delivered reality that creates lasting value"
+    ],
+    "persona_map": [
+      "The Strategist",
+      "The Analyst",
+      "The Collaborator",
+      "The Executor"
+    ],
+    "scores": [
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ]
+  }
+]

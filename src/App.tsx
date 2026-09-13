@@ -1,8 +1,10 @@
 import { useState, useEffect, useMemo, useCallback } from 'react';
 import { QUESTION_BANK } from './data/questions';
-import { PersonaType, ProfilingResults } from './types';
+import { GENERAL_QUESTION_BANK } from './data/generalQuestions';
+import { PersonaType, ProfilingResults, TestType } from './types';
 import { calculateProfilingResults } from './utils/scoring';
 import { Header } from './components/Header';
+import { LandingPageView } from './components/LandingPageView';
 import { IntroView } from './components/IntroView';
 import { TestView } from './components/TestView';
 import { ResultsView } from './components/ResultsView';
@@ -11,7 +13,8 @@ import { SubmitWarningModal } from './components/SubmitWarningModal';
 import './App.css';
 
 export function App() {
-  const [view, setView] = useState<'intro' | 'test' | 'results'>('intro');
+  const [selectedTest, setSelectedTest] = useState<TestType | null>(null);
+  const [view, setView] = useState<'landing' | 'intro' | 'test' | 'results'>('landing');
   const [candidateName, setCandidateName] = useState('Alex Morgan');
   const [durationMinutes, setDurationMinutes] = useState(90);
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
@@ -23,8 +26,13 @@ export function App() {
   const [isSubmitWarningOpen, setIsSubmitWarningOpen] = useState(false);
   const [results, setResults] = useState<ProfilingResults | null>(null);
 
+  // Active question bank according to selected test track
+  const activeQuestionBank = useMemo(() => {
+    return selectedTest === 'general' ? GENERAL_QUESTION_BANK : QUESTION_BANK;
+  }, [selectedTest]);
+
   // Current active question
-  const currentQuestion = QUESTION_BANK[currentQuestionIndex];
+  const currentQuestion = activeQuestionBank[currentQuestionIndex] || activeQuestionBank[0];
 
   // Section answered counts
   const sectionAnswersCount = useMemo(() => {
@@ -35,7 +43,7 @@ export function App() {
       4: { answered: 0, total: 0 }
     };
 
-    QUESTION_BANK.forEach(q => {
+    activeQuestionBank.forEach(q => {
       counts[q.section].total++;
       if (answers[q.id] !== undefined) {
         counts[q.section].answered++;
@@ -43,12 +51,41 @@ export function App() {
     });
 
     return counts;
-  }, [answers]);
+  }, [activeQuestionBank, answers]);
 
   // Unanswered questions
   const unansweredQuestions = useMemo(() => {
-    return QUESTION_BANK.filter(q => answers[q.id] === undefined);
-  }, [answers]);
+    return activeQuestionBank.filter(q => answers[q.id] === undefined);
+  }, [activeQuestionBank, answers]);
+
+  // Select Test Track from Landing Page
+  const handleSelectTest = (track: TestType) => {
+    setSelectedTest(track);
+    setCandidateName(track === 'java' ? 'Alex Morgan' : 'Jordan Taylor');
+    setAnswers({});
+    setFlaggedQuestions(new Set());
+    setCurrentQuestionIndex(0);
+    setResults(null);
+    setView('intro');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  // Return to Landing Page (Home)
+  const handleGoHome = () => {
+    if (view === 'test') {
+      if (!window.confirm("Are you sure you want to return to Home? Your current test progress will be lost.")) {
+        return;
+      }
+    }
+    setIsTimerActive(false);
+    setAnswers({});
+    setFlaggedQuestions(new Set());
+    setCurrentQuestionIndex(0);
+    setResults(null);
+    setSelectedTest(null);
+    setView('landing');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
 
   // Start Assessment
   const handleStart = () => {
@@ -56,6 +93,7 @@ export function App() {
     setIsTimerActive(true);
     setView('test');
     setCurrentQuestionIndex(0);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   // Timer Effect
@@ -83,7 +121,7 @@ export function App() {
     setAnswers(prev => ({ ...prev, [currentQuestion.id]: val }));
 
     // Auto advance smoothly if not on last question
-    if (currentQuestionIndex < QUESTION_BANK.length - 1) {
+    if (currentQuestionIndex < activeQuestionBank.length - 1) {
       setTimeout(() => {
         setCurrentQuestionIndex(prev => prev + 1);
       }, 250);
@@ -111,7 +149,7 @@ export function App() {
   };
 
   const handleNext = () => {
-    if (currentQuestionIndex < QUESTION_BANK.length - 1) {
+    if (currentQuestionIndex < activeQuestionBank.length - 1) {
       setCurrentQuestionIndex(prev => prev + 1);
     } else {
       setIsSubmitWarningOpen(true);
@@ -119,14 +157,14 @@ export function App() {
   };
 
   const handleJumpToQuestion = (qId: number) => {
-    const idx = QUESTION_BANK.findIndex(q => q.id === qId);
+    const idx = activeQuestionBank.findIndex(q => q.id === qId);
     if (idx !== -1) {
       setCurrentQuestionIndex(idx);
     }
   };
 
   const handleJumpToSection = (sectionNum: number) => {
-    const firstQ = QUESTION_BANK.find(q => q.section === sectionNum);
+    const firstQ = activeQuestionBank.find(q => q.section === sectionNum);
     if (firstQ) {
       handleJumpToQuestion(firstQ.id);
     }
@@ -137,15 +175,15 @@ export function App() {
     setIsTimerActive(false);
     setIsSubmitWarningOpen(false);
     setIsPaletteOpen(false);
-    const res = calculateProfilingResults(answers);
+    const res = calculateProfilingResults(answers, selectedTest || 'java', activeQuestionBank);
     setResults(res);
     setView('results');
     window.scrollTo({ top: 0, behavior: 'smooth' });
-  }, [answers]);
+  }, [answers, selectedTest, activeQuestionBank]);
 
-  // Reset Assessment
+  // Reset Assessment for current test
   const handleReset = () => {
-    if (view === 'intro' || window.confirm("Are you sure you want to reset the assessment? Current progress will be lost.")) {
+    if (view === 'intro' || window.confirm("Are you sure you want to reset this test? Current progress will be lost.")) {
       setIsTimerActive(false);
       setAnswers({});
       setFlaggedQuestions(new Set());
@@ -160,22 +198,30 @@ export function App() {
   const handleAutoFill = (profileType: PersonaType | 'random') => {
     const newAnswers: Record<number, any> = {};
 
-    QUESTION_BANK.forEach(q => {
+    activeQuestionBank.forEach(q => {
       if (q.type === 'likert') {
         if (q.scoring === 'overconfidence_trap' || q.scoring === 'social_desirability_trap') {
           newAnswers[q.id] = (profileType === 'random') ? (Math.random() > 0.5 ? 2 : 4) : 2;
         } else if (q.scoring === 'negative') {
           newAnswers[q.id] = (profileType === 'random') ? Math.floor(Math.random() * 5) + 1 : 1;
         } else {
+          // Java personas
           if (profileType === 'The Architect' && (q.trait === 'clean_architecture' || q.trait === 'system_design')) {
             newAnswers[q.id] = 5;
           } else if (profileType === 'The Debugger' && (q.category === 'problem_solving' || q.trait === 'tenacity')) {
             newAnswers[q.id] = 5;
-          } else if (profileType === 'The Collaborator' && (q.category === 'teamwork' || q.trait === 'mentorship')) {
+          } else if (profileType === 'The Collaborator' && (q.category === 'teamwork' || q.trait === 'mentorship' || q.trait === 'active_listening' || q.trait === 'empathy')) {
             newAnswers[q.id] = 5;
-          } else if (profileType === 'The Executor' && (q.trait === 'incremental_delivery' || q.trait === 'business_impact')) {
+          } else if (profileType === 'The Executor' && (q.trait === 'incremental_delivery' || q.trait === 'business_impact' || q.trait === 'execution_velocity' || q.trait === 'discipline')) {
             newAnswers[q.id] = 5;
           } else if (profileType === 'The Learner' && (q.trait === 'continuous_learning' || q.trait === 'deep_curiosity')) {
+            newAnswers[q.id] = 5;
+          // General personas
+          } else if (profileType === 'The Strategist' && (q.trait === 'strategic_planning' || q.trait === 'big_picture' || q.trait === 'long_term_vision')) {
+            newAnswers[q.id] = 5;
+          } else if (profileType === 'The Analyst' && (q.trait === 'analytical_rigor' || q.trait === 'data_driven' || q.category === 'problem_solving')) {
+            newAnswers[q.id] = 5;
+          } else if (profileType === 'The Innovator' && (q.trait === 'adaptability' || q.trait === 'curiosity' || q.trait === 'creative_problem_solving')) {
             newAnswers[q.id] = 5;
           } else {
             newAnswers[q.id] = (profileType === 'random') ? Math.floor(Math.random() * 5) + 1 : 4;
@@ -207,7 +253,7 @@ export function App() {
     setIsTimerActive(false);
     setIsSubmitWarningOpen(false);
     setIsPaletteOpen(false);
-    const res = calculateProfilingResults(newAnswers);
+    const res = calculateProfilingResults(newAnswers, selectedTest || 'java', activeQuestionBank);
     setResults(res);
     setView('results');
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -215,7 +261,7 @@ export function App() {
 
   // Keyboard Navigation
   useEffect(() => {
-    if (view !== 'test' || isPaletteOpen || isSubmitWarningOpen) return;
+    if (view !== 'test' || isPaletteOpen || isSubmitWarningOpen || !currentQuestion) return;
 
     const handleKeyDown = (e: KeyboardEvent) => {
       if (document.activeElement && (document.activeElement.tagName === 'INPUT' || document.activeElement.tagName === 'TEXTAREA')) {
@@ -252,30 +298,38 @@ export function App() {
 
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [view, isPaletteOpen, isSubmitWarningOpen, currentQuestion, currentQuestionIndex]);
+  }, [view, isPaletteOpen, isSubmitWarningOpen, currentQuestion, currentQuestionIndex, activeQuestionBank.length]);
 
   return (
     <>
       <Header
         currentView={view}
+        selectedTest={selectedTest}
         currentSection={currentQuestion?.section || 1}
         currentQuestionId={currentQuestion?.id || 1}
-        totalQuestions={QUESTION_BANK.length}
+        totalQuestions={activeQuestionBank.length}
         answeredCount={Object.keys(answers).length}
         secondsRemaining={secondsRemaining}
         onOpenPalette={() => setIsPaletteOpen(true)}
         onAutoFill={handleAutoFill}
         onReset={handleReset}
+        onGoHome={handleGoHome}
       />
 
       <main className="app-main">
-        {view === 'intro' && (
+        {view === 'landing' && (
+          <LandingPageView onSelectTest={handleSelectTest} />
+        )}
+
+        {view === 'intro' && selectedTest && (
           <IntroView
+            testType={selectedTest}
             candidateName={candidateName}
             durationMinutes={durationMinutes}
             onNameChange={setCandidateName}
             onDurationChange={setDurationMinutes}
             onStart={handleStart}
+            onBackToLanding={handleGoHome}
           />
         )}
 
@@ -283,7 +337,7 @@ export function App() {
           <TestView
             question={currentQuestion}
             currentIndex={currentQuestionIndex}
-            totalQuestions={QUESTION_BANK.length}
+            totalQuestions={activeQuestionBank.length}
             currentAnswer={answers[currentQuestion.id]}
             isFlagged={flaggedQuestions.has(currentQuestion.id)}
             sectionAnswersCount={sectionAnswersCount}
@@ -301,6 +355,7 @@ export function App() {
             candidateName={candidateName}
             results={results}
             onRetake={handleReset}
+            onGoHome={handleGoHome}
           />
         )}
       </main>
@@ -308,7 +363,7 @@ export function App() {
       {/* Question Palette Modal */}
       <QuestionPaletteModal
         isOpen={isPaletteOpen}
-        questions={QUESTION_BANK}
+        questions={activeQuestionBank}
         currentQuestionId={currentQuestion?.id || 1}
         answers={answers}
         flaggedQuestions={flaggedQuestions}

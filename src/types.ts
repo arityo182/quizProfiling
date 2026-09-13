@@ -1,3 +1,5 @@
+export type TestType = 'java' | 'general';
+
 export type CategoryType = 
   | 'personality'
   | 'work_style'
@@ -5,12 +7,29 @@ export type CategoryType =
   | 'problem_solving'
   | 'motivation';
 
-export type PersonaType = 
+export type JavaPersonaType = 
   | 'The Architect'
   | 'The Debugger'
   | 'The Collaborator'
   | 'The Executor'
   | 'The Learner';
+
+export type GeneralPersonaType = 
+  | 'The Strategist'
+  | 'The Analyst'
+  | 'The Collaborator'
+  | 'The Executor'
+  | 'The Innovator';
+
+export type PersonaType = 
+  | 'The Architect'
+  | 'The Debugger'
+  | 'The Collaborator'
+  | 'The Executor'
+  | 'The Learner'
+  | 'The Strategist'
+  | 'The Analyst'
+  | 'The Innovator';
 
 export type QuestionType = 
   | 'likert'
@@ -55,6 +74,7 @@ export interface CandidateProfile {
   durationMinutes: number;
   startTime: Date | null;
   endTime: Date | null;
+  testType: TestType;
 }
 
 export interface ConsistencyAudit {
@@ -66,6 +86,7 @@ export interface ConsistencyAudit {
 }
 
 export interface ProfilingResults {
+  testType: TestType;
   finalScore: number;
   categoryScores: Record<CategoryType, number>;
   primaryPersona: PersonaType;
